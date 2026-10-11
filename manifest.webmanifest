@@ -1,0 +1,17 @@
+{
+  "name": "GiraPrêmios Solidária",
+  "short_name": "GiraPrêmios",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#110b21",
+  "theme_color": "#160d2c",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
