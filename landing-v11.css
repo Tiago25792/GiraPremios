@@ -1,0 +1,88 @@
+/* GiraPrêmios — referência visual azul e dourado v1.1, mobile first */
+:root{--shine:#ffe58c;--navy:#082a75;--ocean:#046eec;--sky:#0fbafa}
+body.ocean-site{background:radial-gradient(ellipse at 55% -10%,#49d6ff,transparent 42%),linear-gradient(180deg,#0464df,#08a5f6 42%,#22c4fa 75%,#0e9ef0);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+body.ocean-site .wrap{width:min(100%,1120px);padding:0 clamp(12px,2.5vw,24px)}
+body.ocean-site .home-header{min-height:76px;padding:14px 0 15px;border-bottom:1px solid rgba(255,255,255,.4)}
+body.ocean-site .logo{font-size:clamp(22px,3.5vw,34px);font-weight:1000;color:#fff!important;letter-spacing:-1.45px;text-shadow:0 3px 0 #0e4daa,0 5px 11px #04356b5e;gap:8px}
+body.ocean-site .logo strong{color:#ffe08b!important;text-shadow:0 2px 0 #a95108,0 5px 7px #04376991}
+body.ocean-site .logo-mark{width:49px;height:49px;display:grid;place-items:center;flex-shrink:0;font-size:41px;background:transparent;border:none;box-shadow:none;filter:drop-shadow(0 4px 2px #024ba781)}
+body.ocean-site .login-top{font-size:15px;min-width:130px;min-height:48px;padding:10px 20px;border-radius:19px!important;background:linear-gradient(#fff4b7 0%,#ffd86c 50%,#fba637 100%)!important;color:#7e3106!important;text-shadow:0 1px #fff0a0;box-shadow:inset 0 2px rgba(255,255,255,.8),0 6px 0 #bb5c14,0 10px 13px #004e9196!important}
+body.ocean-site .home-hero{
+ position:relative;display:block;min-height:0;overflow:hidden;border-radius:30px;
+ padding:clamp(23px,4vw,40px) clamp(23px,4vw,43px) 0!important;margin:21px 0 19px;
+ border:4px solid #c3f7ff;background:
+ radial-gradient(ellipse at 85% 11%,rgba(154,245,255,.55),transparent 45%),
+ linear-gradient(135deg,#0370e9 0%,#079bff 53%,#19c9f9 100%);
+ box-shadow:inset 0 3px #ffffff70,0 12px 35px #004a9b6b;
+}
+body.ocean-site .home-hero:before{content:"";position:absolute;inset:auto 0 0;width:100%;height:49%;pointer-events:none;border:0;border-radius:0;
+ background:linear-gradient(0deg,#35c8f7 1%,#00a3e4 2%,#0caae9 43%,#6ed7fc 43.5%,#8feaff 47%,transparent 85%);opacity:.89}
+body.ocean-site .home-hero:after{content:"";position:absolute;inset:auto 0 0;width:100%;height:16%;pointer-events:none;border:0;border-radius:0;
+ background:linear-gradient(180deg,transparent,#b96b2766 20%,#a85d2c 21%,#d88c43 32%,#cc7835 85%,#85471f);
+ box-shadow:inset 0 5px #edb06b}
+body.ocean-site .hero-copy{position:relative;z-index:4;max-width:none}
+body.ocean-site .tiny-label{background:linear-gradient(#097df0,#0964df);border:2px solid #beeaff;color:#fff!important;box-shadow:0 3px 9px #00569d80;font-family:inherit;font-weight:900;text-transform:uppercase;line-height:1.3;letter-spacing:.075em}
+body.ocean-site .home-hero h1{color:#fff!important;max-width:860px;font-size:clamp(29px,6.3vw,65px);line-height:1.13;margin:21px 0 0;font-weight:950;letter-spacing:-1.15px;text-shadow:0 3px 0 #1260b9,0 6px 7px #034f8e69;text-wrap:balance}
+body.ocean-site .home-hero h1 .white-line{display:block;color:#fff}
+body.ocean-site .home-hero h1 .gold-line{display:block;width:max-content;max-width:100%;font-style:normal;white-space:normal;color:#ffe486!important;
+ background:linear-gradient(180deg,#fffcb5 0%,#ffe27d 36%,#ffbe3a 70%,#ffca51 100%);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 2px 0 #ae5d0e) drop-shadow(0 4px 2px #82421166)}
+body.ocean-site .hero-art{position:relative;z-index:3;width:100%;min-height:0;height:clamp(275px,43vw,515px);margin-top:0;display:block}
+body.ocean-site .hero-orbit{position:absolute;right:1%;bottom:5%;height:min(100%,445px);width:min(72%,445px);border:0;background:none;box-shadow:none}
+body.ocean-site .hero-wheel-link{display:block;width:100%;height:100%;position:relative}
+body.ocean-site .hero-wheel-link img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 11px 4px #005da084)!important}
+body.ocean-site .hero-mascot{position:absolute;z-index:6;width:49%;height:87%;object-fit:contain;left:-25%;bottom:-1%;filter:drop-shadow(0 5px 5px #1b648968)}
+body.ocean-site .sparkle.one{position:absolute;z-index:5;left:1%;top:7%;font-size:32px}
+body.ocean-site .sparkle.two{position:absolute;z-index:5;right:0;bottom:4%;font-size:43px}
+.hero-art .ocean-island{position:absolute;z-index:0;left:-3%;bottom:35%;font-size:clamp(25px,6vw,53px);filter:drop-shadow(0 7px 2px #075c9f6b)}
+.hero-art .ocean-bird{position:absolute;right:2%;top:10%;font-size:clamp(18px,3vw,35px);z-index:4}
+.hero-art .ocean-coins{position:absolute;left:3%;bottom:4%;z-index:4;font-size:clamp(22px,5.5vw,48px)}
+body.ocean-site .second-slogan{border:3px solid #d8f9ff;border-radius:25px;background:linear-gradient(120deg,#ffffff,#effaff);box-shadow:inset 0 3px #fff,0 13px 28px #0057a74f;padding:23px 25px;display:flex;align-items:center;gap:20px}
+body.ocean-site .second-slogan p{font-weight:910;font-size:clamp(18px,2.9vw,29px);letter-spacing:-.7px;line-height:1.24;color:#0942ad!important;text-shadow:none}
+body.ocean-site .second-slogan .symbol{font-size:43px;filter:drop-shadow(0 5px 3px #684fc43d)}
+body.ocean-site .sponsor-feature{border:3px solid #e5fbff;border-radius:25px;background:linear-gradient(145deg,#f7ffff,#effaff);padding:clamp(21px,3vw,32px);box-shadow:0 14px 40px #0059a55c}
+body.ocean-site .feature-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:start;gap:14px;border-bottom:0;padding-bottom:0}
+body.ocean-site .feature-top .tiny-label{max-width:100%;font-size:clamp(11px,1.7vw,14px);border-radius:100px;padding:12px 17px;min-height:42px}
+body.ocean-site .feature-top h2{color:#0b367c!important;font-size:clamp(31px,4vw,43px);font-weight:970;letter-spacing:-1.5px;margin:24px 0 0;line-height:1.1}
+body.ocean-site .feature-top p{font-size:clamp(14px,2vw,20px);font-weight:450;color:#557196!important;margin:8px 0 20px}
+body.ocean-site .supporter-counter{background:linear-gradient(105deg,#e7f7ff,#c5ebff);border:2px solid #76d0fc;color:#0a53a4;min-height:44px;border-radius:100px;display:inline-flex;align-items:center;padding:9px 18px;font-size:13px;letter-spacing:0;font-weight:850}
+body.ocean-site .sponsor-feature .sponsor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+body.ocean-site .sponsor-feature .sponsor{border:4px solid #a9eaff;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 7px 15px #0970c72b}
+body.ocean-site .sponsor-feature .sponsor-image{height:clamp(155px,24vw,260px);font-size:clamp(50px,7vw,88px);background:linear-gradient(145deg,#0578f9,#0ebcf8)}
+body.ocean-site .sponsor-feature .sponsor-body{padding:13px 17px}
+body.ocean-site .sponsor-feature .sponsor h3{color:#0d4791!important;font-size:clamp(15px,2.2vw,21px);font-weight:890}
+body.ocean-site .sponsor-feature .sponsor-type{color:#ac6a09}
+body.ocean-site .sponsor-feature .sponsor p{color:#446b91!important}
+body.ocean-site .sponsor-feature .sponsor:nth-child(3n){grid-column:auto}
+body.ocean-site .modal{border:2px solid #8ce9ff}
+@media(min-width:800px){body.ocean-site .home-hero{min-height:710px}body.ocean-site .hero-art{height:460px}body.ocean-site .hero-mascot{left:-26%;width:53%}}
+@media(max-width:630px){
+ body.ocean-site .wrap{padding:0 13px}
+ body.ocean-site .home-header{min-height:70px;padding:12px 0}
+ body.ocean-site .logo{font-size:clamp(20px,5vw,27px);letter-spacing:-1.3px}
+ body.ocean-site .logo-mark{font-size:34px;width:40px;height:40px}
+ body.ocean-site .login-top{min-height:44px;min-width:116px;font-size:13px;padding:8px 12px}
+ body.ocean-site .home-hero{padding:19px 17px 0!important;margin:15px 0 14px;border-radius:25px}
+ body.ocean-site .tiny-label{font-size:11px}
+ body.ocean-site .home-hero h1{font-size:clamp(29px,6.85vw,42px);line-height:1.15;letter-spacing:-.9px;margin:21px 0 0}
+ body.ocean-site .hero-art{height:clamp(230px,59vw,380px)}
+ body.ocean-site .hero-orbit{right:-4%;bottom:4%;width:78%;height:100%}
+ body.ocean-site .hero-mascot{width:54%;left:-27%;height:90%;bottom:1%}
+ body.ocean-site .hero-art .ocean-bird{top:3%}
+ body.ocean-site .second-slogan{padding:17px 16px;gap:12px;margin:12px 0 19px}
+ body.ocean-site .second-slogan .symbol{font-size:31px}
+ body.ocean-site .second-slogan p{font-size:clamp(16px,4vw,22px)}
+ body.ocean-site .sponsor-feature{padding:17px 13px}
+ body.ocean-site .feature-top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:5px}
+ body.ocean-site .feature-top>div{min-width:0}
+ body.ocean-site .feature-top .tiny-label{font-size:10px;padding:11px 12px;letter-spacing:.02em}
+ body.ocean-site .feature-top h2{font-size:clamp(28px,7vw,36px);letter-spacing:-1px;margin:24px 0 0}
+ body.ocean-site .feature-top p{font-size:13px;margin:8px 0 16px}
+ body.ocean-site .supporter-counter{font-size:11px;padding:8px 10px;min-height:44px}
+ body.ocean-site .sponsor-feature .sponsor-grid{gap:9px}
+ body.ocean-site .sponsor-feature .sponsor-image{height:clamp(131px,36vw,191px)}
+ body.ocean-site .sponsor-feature .sponsor-body{padding:10px}
+ body.ocean-site .sponsor-feature .sponsor h3{font-size:15px}
+}
+@media(max-width:365px){body.ocean-site .home-hero h1{font-size:27px}body.ocean-site .feature-top .tiny-label{font-size:9px}body.ocean-site .supporter-counter{font-size:10px;padding:6px 7px}}
