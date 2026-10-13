@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="505" viewBox="0 0 440 505" role="img" aria-labelledby="title desc">
+<title id="title">Passarinho marinheiro GiraPrêmios</title><desc id="desc">Mascote alegre de penas brancas, uniforme azul e chapéu de marinheiro dourado</desc>
+<defs><radialGradient id="feather" cx="35%" cy="22%" r="72%"><stop stop-color="#fff"/><stop offset=".72" stop-color="#fefdf7"/><stop offset="1" stop-color="#d8e9fb"/></radialGradient><linearGradient id="uniform" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18a8ff"/><stop offset=".48" stop-color="#006edc"/><stop offset="1" stop-color="#0641a3"/></linearGradient><linearGradient id="hat" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".6" stop-color="#eafaff"/><stop offset="1" stop-color="#b6dfff"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6bd"/><stop offset=".45" stop-color="#ffbd43"/><stop offset="1" stop-color="#ec7c09"/></linearGradient><filter id="shadow" x="-25%" y="-25%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="11" flood-color="#004f92" flood-opacity=".29"/></filter></defs>
+<ellipse cx="230" cy="476" rx="142" ry="20" fill="#075aa4" opacity=".18"/>
+<g filter="url(#shadow)" stroke-linejoin="round" stroke-linecap="round">
+<path d="M109 331 Q43 289 20 224 Q17 209 33 202 Q58 195 75 213 Q83 183 98 196 Q118 212 112 234 Q152 265 175 294Z" fill="url(#feather)" stroke="#c2dcf0" stroke-width="6"/>
+<path d="M338 331 Q388 303 409 267 Q423 241 406 233 Q389 228 376 249 Q370 219 356 230 Q346 244 344 254 L295 292Z" fill="url(#feather)" stroke="#c2dcf0" stroke-width="6"/>
+<path d="M155 402 Q145 433 124 450 Q117 460 140 463 Q161 467 171 452 Q180 468 194 461 Q205 455 189 438 L197 401Z" fill="url(#gold)" stroke="#cc6e0e" stroke-width="5"/>
+<path d="M255 403 Q271 431 293 447 Q306 458 288 463 Q269 468 258 452 Q240 465 229 457 Q224 449 240 433 L231 398Z" fill="url(#gold)" stroke="#cc6e0e" stroke-width="5"/>
+<ellipse cx="220" cy="313" rx="123" ry="132" fill="url(#uniform)" stroke="#0b459c" stroke-width="7"/>
+<path d="M119 260 Q218 303 320 258 L315 316 Q220 354 124 316Z" fill="#f0faff" stroke="#c5e7ff" stroke-width="4"/>
+<path d="M134 318 Q220 356 304 318" fill="none" stroke="#fff" stroke-width="12"/>
+<path d="M135 343 Q220 382 305 343" fill="none" stroke="#e2f6ff" stroke-width="8"/>
+<circle cx="181" cy="371" r="8" fill="url(#gold)"/><circle cx="260" cy="371" r="8" fill="url(#gold)"/>
+<ellipse cx="218" cy="244" rx="140" ry="138" fill="url(#feather)" stroke="#bed9ed" stroke-width="6"/>
+<path d="M118 227 Q129 202 165 208" fill="none" stroke="#123c73" stroke-width="10"/>
+<path d="M263 210 Q305 198 319 231" fill="none" stroke="#123c73" stroke-width="10"/>
+<path d="M131 251 Q146 273 169 250" fill="none" stroke="#18376b" stroke-width="10"/>
+<path d="M274 250 Q296 274 312 252" fill="none" stroke="#18376b" stroke-width="10"/>
+<ellipse cx="122" cy="280" rx="20" ry="13" fill="#ff9d9b" opacity=".85"/>
+<ellipse cx="320" cy="280" rx="20" ry="13" fill="#ff9d9b" opacity=".85"/>
+<path d="M175 270 Q218 250 268 272 Q242 300 220 316 Q195 295 175 270Z" fill="url(#gold)" stroke="#d46e11" stroke-width="5"/>
+<path d="M195 292 Q217 300 249 288" stroke="#f48518" fill="none" stroke-width="5"/>
+<path d="M144 153 Q117 108 152 64 Q169 37 206 40 Q222 15 244 36 Q279 38 294 68 Q329 106 300 157 Q217 177 144 153Z" fill="url(#hat)" stroke="#8ec9ed" stroke-width="7"/>
+<path d="M129 149 Q218 129 309 149 Q322 155 321 173 Q315 189 289 193 Q212 204 138 191 Q113 187 117 170Z" fill="#075cb4" stroke="#003b8e" stroke-width="6"/>
+<path d="M155 169 Q221 183 285 169" stroke="#ffda72" stroke-width="9" fill="none"/>
+<circle cx="217" cy="92" r="32" fill="#076bc7" stroke="#ffda73" stroke-width="8"/>
+<path d="M217 70 V111 M202 89 Q217 100 233 89 M202 98 Q202 119 217 118 Q233 117 233 98" fill="none" stroke="#ffebad" stroke-width="5"/>
+<path d="M186 365 Q211 345 219 352 Q229 344 251 366 L220 386Z" fill="#15bafa" stroke="#005ab2" stroke-width="4"/>
+<path d="M216 379 L204 425 L220 443 L239 421 L225 379" fill="#008de7" stroke="#08509d" stroke-width="4"/>
+</g><path d="M53 145 L63 122 L73 145 L95 155 L73 166 L64 186 L52 166 L30 155Z" fill="#fff4ac"/><circle cx="371" cy="163" r="12" fill="#ffdb73"/><path d="M378 84 L385 100 L404 107 L386 113 L378 134 L369 114 L350 107 L368 101Z" fill="#ffe789"/></svg>
