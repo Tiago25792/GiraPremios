@@ -86,3 +86,12 @@ body.ocean-site .modal{border:2px solid #8ce9ff}
  body.ocean-site .sponsor-feature .sponsor h3{font-size:15px}
 }
 @media(max-width:365px){body.ocean-site .home-hero h1{font-size:27px}body.ocean-site .feature-top .tiny-label{font-size:9px}body.ocean-site .supporter-counter{font-size:10px;padding:6px 7px}}
+
+/* Vitrine ilustrativa no mesmo padrão da referência. Ao cadastrar apoiadores reais, os exemplos desaparecem. */
+body.ocean-site .sponsor-feature .sponsor-image.example-sponsor-image{position:relative;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;overflow:hidden;background:radial-gradient(circle at 50% 25%,#4ddaff55,transparent 62%),linear-gradient(125deg,#0668ef,#04b4f8);padding:12px 5px}
+body.ocean-site .example-sponsor-image:before{content:"✦";position:absolute;font-size:40px;color:#ffe567ab;left:10%;top:15%;transform:rotate(-20deg)}
+body.ocean-site .example-sponsor-image:after{content:"✦";position:absolute;font-size:34px;color:#fffca8a1;right:9%;bottom:12%;transform:rotate(14deg)}
+body.ocean-site .example-sponsor-emoji{font-size:clamp(51px,7vw,83px);line-height:1.05;filter:drop-shadow(0 5px 3px #0755b478);position:relative;z-index:1}
+body.ocean-site .example-sponsor-name{color:#fff;font-size:clamp(17px,2.8vw,28px);font-weight:1000;letter-spacing:-.8px;line-height:1.12;text-align:center;max-width:95%;text-shadow:0 3px 0 #1254b8,0 5px 3px #053e9d,2px 1px 0 #0069b1;position:relative;z-index:1}
+body.ocean-site .sponsor-feature .sponsor:nth-child(even) .example-sponsor-name{color:#fff6aa;text-shadow:0 3px 0 #1550b0,0 5px 3px #093a84}
+@media(max-width:630px){body.ocean-site .example-sponsor-emoji{font-size:clamp(48px,12vw,66px)}body.ocean-site .example-sponsor-name{font-size:clamp(15px,4.3vw,21px)}}
