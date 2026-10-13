@@ -1,0 +1,117 @@
+/* GiraPrêmios Oceano — paleta azul, ouro e laranja */
+:root{color-scheme:light;--ocean:#056ce4;--sky:#13c1f4;--navy:#092f7c;--ink:#103c79;--gold:#ffc435;--cream:#fff5d2;--orange:#ff742f;--light:#ebfaff}
+body.ocean-site{
+  margin:0;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:radial-gradient(ellipse at 50% -12%,#44ddff 0,transparent 54%),
+  linear-gradient(180deg,#0463ec 0%,#08a7f5 31%,#37d4fa 58%,#d8f5f1 100%);
+}
+body.ocean-site a{color:inherit;text-decoration:none}
+body.ocean-site h1,body.ocean-site h2,body.ocean-site h3,body.ocean-site p{font-family:inherit}
+body.ocean-site .wrap{max-width:1150px}
+body.ocean-site .home-header{border-bottom:1px solid #fff7;min-height:83px}
+body.ocean-site .logo{font-weight:950;font-size:clamp(22px,2.9vw,31px);color:#fff!important;text-shadow:0 2px 7px #1255a699}
+body.ocean-site .logo strong{color:#ffe576!important;text-shadow:0 2px 5px #6f4c0488}
+body.ocean-site .logo-mark{background:linear-gradient(140deg,#3fdafa,#066de0);border:2px solid #b8f4ff;box-shadow:0 5px 14px #0362c666}
+body.ocean-site .login-top,body.ocean-site .game-button{
+  color:#9c3c06!important;background:linear-gradient(#fff3a6 0%,#ffc743 45%,#ff8d26 100%)!important;
+  border:2px solid #ffdf86!important;box-shadow:inset 0 3px 1px #fff9c5,0 6px 0 #ba4f0b,0 10px 19px #87440c66!important;
+  border-radius:17px;font-weight:950;text-shadow:0 1px #fffbda;
+}
+body.ocean-site .home-hero{
+  background:radial-gradient(circle at 83% 24%,#82ebff8f,transparent 43%),linear-gradient(127deg,#0874ec,#03baff 72%,#67e6fa);
+  border:2px solid #b6f2ff;
+  box-shadow:0 18px 43px #0054a67a,inset 0 4px #ffffff58;
+  grid-template-columns:1fr minmax(230px,.62fr);
+  min-height:330px;overflow:visible;position:relative;
+}
+body.ocean-site .home-hero:before{background:radial-gradient(circle,#ffffff29,transparent 66%);width:300px;height:300px;border:none;right:-8px;top:10px}
+body.ocean-site .home-hero:after{display:none}
+body.ocean-site .tiny-label{color:#fff1a6!important;background:#0870d5b5;border:1px solid #c9f4ff;font-weight:950}
+body.ocean-site .home-hero h1{color:#fff!important;text-shadow:0 3px 2px #0359b8,0 7px 15px #00429d55}
+body.ocean-site .home-hero h1 em{
+  background:linear-gradient(90deg,#fffab1,#ffd14d,#ffefa3);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 3px 0 #cb730d);
+}
+body.ocean-site .hero-art{min-height:265px}
+body.ocean-site .hero-orbit{width:245px;height:245px;overflow:visible;position:relative;
+  background:none;box-shadow:none;border:none;border-radius:0}
+body.ocean-site .hero-orbit img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 11px 8px #005bb966)}
+body.ocean-site .hero-mascot{position:absolute;bottom:-17px;left:-58px;width:118px;filter:drop-shadow(0 7px 8px #0065a9bb);z-index:2}
+body.ocean-site .hero-art .sparkle{filter:drop-shadow(0 3px 5px #e2a823)}
+body.ocean-site .hero-wheel-link{display:block;position:relative;width:100%;height:100%}
+body.ocean-site .hero-wheel-link:focus-visible{outline:3px solid #fff0a2;border-radius:50%}
+body.ocean-site .second-slogan{
+  background:linear-gradient(100deg,#fffefa,#edfaff);border:2px solid #b5edff;
+  box-shadow:0 10px 24px #0572bb44;
+}
+body.ocean-site .second-slogan p{color:#0860be!important;font-weight:900}
+body.ocean-site .sponsor-feature{
+  background:linear-gradient(165deg,#f5ffff,#dff6ff 80%,#f8fffe);
+  border:3px solid #ffffffaa;color:#124a87;box-shadow:0 13px 34px #0077b35a;
+}
+body.ocean-site .feature-top{border-bottom:2px solid #0b92d71e}
+body.ocean-site .feature-top h2{color:#104b92!important;text-shadow:none}
+body.ocean-site .feature-top p{color:#4876a0!important}
+body.ocean-site .sponsor-feature .tiny-label{background:#147de6;border-color:#9fddff;color:#fff!important}
+body.ocean-site .supporter-counter{color:#0055ad;background:#d6efff;border:1px solid #63b4ee}
+body.ocean-site .sponsor-feature .sponsor{
+  background:#fff;border:2px solid #9fd1f3;box-shadow:0 8px 19px #006da631;transform:translateZ(0)
+}
+body.ocean-site .sponsor-feature .sponsor-image{background:linear-gradient(130deg,#0a77e5,#1cc7fc)}
+body.ocean-site .sponsor-feature .sponsor:nth-child(3n+2) .sponsor-image{background:linear-gradient(130deg,#0b9dea,#48d4fa)}
+body.ocean-site .sponsor-feature .sponsor:nth-child(3n+3) .sponsor-image{background:linear-gradient(130deg,#0873de,#43bdf7)}
+body.ocean-site .sponsor-feature .sponsor h3{color:#0a4893!important;font-weight:900}
+body.ocean-site .sponsor-feature .sponsor p{color:#47779c!important}
+body.ocean-site .sponsor-feature .sponsor-type{color:#d37806}
+body.ocean-site .sponsor-feature .sponsor a{color:#0268ca}
+body.ocean-site .foot{color:#124c8a;text-shadow:0 1px #fff8}
+body.ocean-site .modal{color:#193f79;background:linear-gradient(155deg,#f8feff,#d6f3ff);border:2px solid #70bbf4;box-shadow:0 22px 60px #003567ac}
+body.ocean-site .modal h2{color:#073e88!important}
+body.ocean-site .modal p,body.ocean-site .modal label{color:#315c88}
+body.ocean-site .modal input{background:#fff;color:#163d6a;border:1px solid #74a9d7}
+body.ocean-site .modal .authbtn{background:linear-gradient(#ffde79,#ff912e);color:#682d00}
+body.ocean-site .modal-actions button{background:#e4f2ff;color:#124f8e;border:1px solid #77afe1}
+body.ocean-site .modal .auth-feedback{color:#1352a2}
+body.ocean-site .modal .auth-feedback.error{color:#bd2323}
+body.ocean-site .modal .auth-feedback.good{color:#006b3d}
+body.ocean-site .modal .fine{color:#4f718b}
+body.ocean-site .modal .close{background:#daecfc;color:#1b60a0;border-color:#85bde8}
+body.ocean-site .sponsor-feature .empty{color:#2470af}
+@media(max-width:750px){
+  body.ocean-site .home-hero{grid-template-columns:1fr;overflow:hidden;padding-bottom:0}
+  body.ocean-site .home-hero h1{font-size:clamp(30px,7vw,45px)}
+  body.ocean-site .hero-art{min-height:181px}
+  body.ocean-site .hero-orbit{width:178px;height:178px}
+  body.ocean-site .hero-mascot{width:91px;left:-47px;bottom:-7px}
+  body.ocean-site .second-slogan{padding:15px 17px}
+  body.ocean-site .sponsor-feature{padding:18px 14px}
+}
+@media(max-width:440px){body.ocean-site .hero-orbit{width:158px;height:158px}body.ocean-site .hero-art{min-height:168px}body.ocean-site .hero-mascot{width:83px;left:-43px}body.ocean-site .sponsor-feature .sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.ocean-site .sponsor-feature .sponsor:nth-child(3n){grid-column:auto}}
+/* Painéis logados: cores alinhadas ao novo tema */
+body.ocean-site .container{max-width:1140px}
+body.ocean-site .topbar{color:#fff;border-bottom:1px solid #ffffff6c}
+body.ocean-site .brand{color:#fff!important;text-shadow:0 2px 5px #0754b9}
+body.ocean-site .brand em{color:#ffe280!important}
+body.ocean-site .links a,body.ocean-site .mobile-menu a{color:#06488a;background:#e5f7ff;border:1px solid #84c6f5}
+body.ocean-site .panel,body.ocean-site .tile,body.ocean-site .card{color:#16497f;background:linear-gradient(150deg,#fff,#d9f5ff);border:2px solid #c2edff;box-shadow:0 11px 25px #006ba136}
+body.ocean-site .panel h1,body.ocean-site .panel h2,body.ocean-site .panel h3,body.ocean-site .tile h3,body.ocean-site .card h2{color:#0b498f}
+body.ocean-site .panel p,body.ocean-site .tile p,body.ocean-site .card p,body.ocean-site .sub,body.ocean-site .muted,body.ocean-site .mini{color:#416e94}
+body.ocean-site .eyebrow,body.ocean-site .tag{color:#fff4c7;background:#087bd3;border-color:#a7eaff}
+body.ocean-site .btn:not(.alt):not(.outline):not(.warn){background:linear-gradient(#ffdf73,#ff8b2a);color:#632900}
+body.ocean-site .btn.alt,body.ocean-site .btn.outline{background:#087bea;color:#fff;border:1px solid #95d9ff}
+body.ocean-site .btn.warn{background:#ce4e56;color:#fff}
+body.ocean-site .tile .value{color:#f09917}
+body.ocean-site .notice,body.ocean-site .status,body.ocean-site .hint{color:#164982;background:#dcf4ff;border-color:#a2d9ee}
+body.ocean-site input:not([type=checkbox]),body.ocean-site textarea{background:#fff;color:#153f75;border:1px solid #8bc5e9}
+body.ocean-site .admin-item{background:#eefaff;color:#165291;border-color:#a4def5}
+body.ocean-site .admin-item small{color:#436e99}
+body.ocean-site .empty{color:#246fa8;border-color:#8acbe7}
+body.ocean-site .count{background:#cfedff;color:#035aab;border-color:#9bd5f9}
+body.ocean-site .listrow{border-color:#afdcea}
+body.ocean-site .listrow .mark{background:#c8edff}
+body.ocean-site .sponsor{background:#fff;color:#16497f;border-color:#8accf3}
+body.ocean-site .sponsor h3{color:#174b86}
+body.ocean-site .sponsor p{color:#466b94}
+body.ocean-site .sponsor-body a{color:#006bd0}
+body.ocean-site .footer{color:#134e87}
