@@ -1,4 +1,4 @@
-const CACHE='girapremios-ocean-v08';
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['./','./index.html','./styles.css','./home.css','./marine.css','./app-config.js','./roleta.html','./usuario.html','./admin.html','./roleta-marinha.svg','./mascote-marinheiro.svg','./manifest.webmanifest','./icon.svg'])).then(()=>self.skipWaiting())));
+const CACHE='girapremios-reference-v12';
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['./','./index.html','./styles.css','./home.css','./marine.css','./app-config.js','./roleta.html','./usuario.html','./admin.html','./roleta-marinha.svg','./mascote-oficial.svg','./landing-v11.css','./manifest.webmanifest','./icon.svg'])).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('girapremios-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;event.respondWith(fetch(event.request).catch(()=>caches.match(event.request)))});
