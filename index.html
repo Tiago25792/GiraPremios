@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#067aed"><meta name="description" content="Uma comunidade de prêmios, benefícios e apoiadores!"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg"><link rel="stylesheet" href="./home.css?v=07"><link rel="stylesheet" href="./marine.css?v=08"><link rel="stylesheet" href="./landing-v11.css?v=12"><title>GiraPrêmios | Comunidade e apoiadores</title></head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#087eec"><meta name="description" content="Uma comunidade de prêmios, benefícios e apoiadores!"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="./mascote-oficial.svg?v=13"><link rel="apple-touch-icon" href="./mascote-oficial.svg?v=13"><link rel="stylesheet" href="./home.css?v=07"><link rel="stylesheet" href="./marine.css?v=08"><link rel="stylesheet" href="./landing-v11.css?v=12"><link rel="stylesheet" href="./home-v13.css?v=13"><title>GiraPrêmios | Comunidade e apoiadores</title></head>
 <body class="ocean-site"><div class="wrap">
-<header class="home-header"><a class="logo" href="./" aria-label="GiraPrêmios — início"><span class="logo-mark" aria-hidden="true">☸️</span><span>Gira<strong>Prêmios</strong></span></a><button class="login-top" id="loginTop" type="button">Entrar <span aria-hidden="true">↗</span></button></header>
+<header class="home-header"><a class="logo" href="./" aria-label="GiraPrêmios — início"><span class="logo-mark" aria-hidden="true"><img src="./roleta-marinha.svg?v=13" width="50" height="50" alt=""></span><span>Gira<strong>Prêmios</strong></span></a><button class="login-top" id="loginTop" type="button">Entrar <span aria-hidden="true">↗</span></button></header>
 <main>
 <section class="home-hero" aria-label="GiraPrêmios">
 <div class="hero-copy">
@@ -10,18 +10,18 @@
 </div>
 <div class="hero-art">
 <span class="ocean-island" aria-hidden="true">🌴 🏝️</span><span class="ocean-bird" aria-hidden="true">🕊️</span>
-<div class="hero-orbit"><a class="hero-wheel-link" href="./roleta.html" title="Abrir roleta GiraPrêmios"><img src="./roleta-marinha.svg?v=12" alt="Roleta azul, branca e dourada com moedas virtuais"></a><img class="hero-mascot" src="./mascote-oficial.svg?v=12" alt="Passarinho marinheiro da GiraPrêmios"></div>
+<div class="hero-orbit"><img class="hero-wheel-img" src="./roleta-marinha.svg?v=13" alt="Ilustração decorativa da roleta GiraPrêmios" width="500" height="500" draggable="false"><img class="hero-mascot" src="./mascote-oficial.svg?v=13" alt="Passarinho marinheiro da GiraPrêmios" draggable="false"></div>
 <span class="sparkle one" aria-hidden="true">✨</span><span class="sparkle two" aria-hidden="true">🎁</span><span class="ocean-coins" aria-hidden="true">🪙</span>
 </div></section>
 <section class="second-slogan" aria-label="Nosso convite"><span class="symbol" aria-hidden="true">💜</span><p>Participe da comunidade e descubra benefícios todos os dias.</p></section>
 <section class="sponsor-feature" id="apoiadores"><div class="feature-top"><div><div class="tiny-label">🤝 Quem acredita na nossa comunidade</div><h2>Nossos apoiadores</h2><p>Conheça quem faz parte da GiraPrêmios.</p></div><span class="supporter-counter" id="sponsorCount">Carregando...</span></div><div class="sponsor-grid" id="sponsorGrid"><div class="empty">Carregando a vitrine de apoiadores...</div></div></section>
-</main><footer class="foot"><span>© GiraPrêmios Solidária</span><span>Apoiadores e benefícios para nossa comunidade.</span></footer>
+</main><footer class="foot"><span>© GiraPrêmios Solidária • V1.3</span><span>Apoiadores e benefícios para nossa comunidade.</span></footer>
 </div>
 <dialog class="modal" id="loginDialog" aria-labelledby="dialogTitle"><div class="modal-head"><div><div class="tiny-label">🔐 ACESSO À CONTA</div><h2 id="dialogTitle">Bem-vindo de volta!</h2><p>Entre com seu e-mail para acessar sua área.</p></div><button id="closeDialog" class="close" type="button" aria-label="Fechar login">×</button></div>
 <div id="loginArea"><form id="loginForm"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required><label for="password">Senha</label><input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Sua senha" required><button id="submitLogin" class="authbtn" type="submit">Entrar na minha conta</button></form><div class="modal-actions"><button id="register" type="button">Criar conta</button><button id="forgot" type="button">Esqueci minha senha</button></div><p class="fine">O cadastro e a recuperação por e-mail dependem do serviço de envio configurado no Supabase.</p></div>
 <div id="recoveryArea" hidden><form id="recoveryForm"><label for="newPassword">Escolha uma nova senha</label><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required><button class="authbtn" type="submit">Salvar nova senha</button></form></div><div class="auth-feedback" role="status" aria-live="polite" id="authFeedback"></div></dialog>
 <script type="module">
-import {db,identity,navigateToRole,loadSponsors} from './app-config.js?v=12';
+import {db,identity,navigateToRole,loadSponsors} from './app-config.js?v=13';
 const $=id=>document.getElementById(id);const feedback=(text,kind='')=>{const e=$('authFeedback');e.textContent=text;e.className='auth-feedback '+kind};let account=null;let passwordRecovery=false;
 function openModal(){if(!$('loginDialog').open){$('loginDialog').showModal();}setTimeout(()=>$('email')?.focus(),0)}
 function pageFor(role){navigateToRole(role==='admin'?'admin':'user')}
