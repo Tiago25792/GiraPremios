@@ -1,4 +1,5 @@
 import {db,identity,loadSponsors} from './app-config.js?v=19';
+import {setupNotificationPopover} from './notifications-popover-v20.js?v=20';
 
 /* Áreas internas GiraPrêmios — só exibe dados reais da conta autenticada.
    Produtos e benefícios ainda indisponíveis são identificados como planos. */
@@ -32,13 +33,14 @@ const quick=[
  ['❓','Ajuda','./ajuda.html','ajuda']
 ];
 let user=null,wallet=null,profile=null;
+let notificationUI=null;
 const status=(id,msg,type='')=>{const el=$(id);if(!el)return;el.textContent=msg;el.className='status '+type};
 function shell(){
  const meta=titles[section];
  const tab=section==='beneficios'?'beneficios':section==='perfil'||section==='notificacoes'||section==='ajuda'?'perfil':'inicio';
  $('app').innerHTML='<div class="shell">'+
   '<header class="top"><a href="./usuario.html" class="brand" aria-label="GiraPrêmios — início"><img src="./roleta-marinha.svg" alt="" width="49" height="49"><span>Gira<strong>Prêmios</strong></span></a>'+
-  '<div class="head-actions"><a class="head-link" href="./usuario.html" title="Voltar ao painel" aria-label="Voltar ao painel">←</a><a class="head-link" href="./notificacoes.html" aria-label="Notificações" title="Notificações" style="position:relative">'+navIcon.bell+'<i id="notificationDot" hidden></i></a></div></header>'+
+  '<div class="head-actions"><a class="head-link" href="./usuario.html" title="Voltar ao painel" aria-label="Voltar ao painel">←</a><button type="button" class="head-link" id="notificationTrigger" aria-label="Abrir notificações" title="Notificações" style="position:relative">'+navIcon.bell+'<i id="notificationDot" hidden></i></button></div></header>'+
   '<nav class="crumbs" aria-label="Você está aqui"><a href="./usuario.html">Minha área</a><span>›</span><span>'+meta[3]+'</span></nav>'+
   '<section class="page-hero"><div class="hero-copy"><span class="eyebrow">'+meta[2]+' '+meta[3]+'</span><h1>'+meta[0]+'</h1><p>'+meta[1]+'</p></div><span class="hero-decoration" aria-hidden="true">✨ ☁️</span><img class="hero-bird" src="./mascote-hd.svg?v=14" alt="" width="205" height="234"></section>'+
   '<nav class="quick-links" aria-label="Outras áreas">'+quick.filter(item=>item[3]!==section).slice(0,3).map(item=>'<a class="quick-link" href="'+item[2]+'"><span>'+item[0]+'</span>'+item[1]+'</a>').join('')+'</nav>'+
@@ -264,7 +266,7 @@ async function openNotificacoes(){
  if(!seen)status('noticeStatus','Você ainda não marcou seus avisos como vistos.');
  else status('noticeStatus','Avisos consultados anteriormente nesta conta.');
  $('markRead').addEventListener('click',()=>{
-  if(data?.[0]){localStorage.setItem('gp_seen_'+user.id,data[0].created_at);updateNotificationDot(data[0].created_at)}
+  if(data?.[0]){localStorage.setItem('gp_seen_'+user.id,data[0].created_at);updateNotificationDot(data[0].created_at);notificationUI?.refresh()}
   status('noticeStatus','Avisos marcados como vistos neste aparelho.','success');
  });
 }
@@ -275,6 +277,7 @@ async function start(){
  if(info.error){errorPage('Falha temporária na autenticação. Tente novamente pelo site.');return}
  if(!info.user){errorPage('Você precisa entrar na sua conta antes de continuar.');return}
  user=info.user;
+ notificationUI=setupNotificationPopover({db,user,trigger:$('notificationTrigger')});
  try{
   const [w,p]=await Promise.all([walletData(),getProfile()]);
   wallet=w;profile=p;
@@ -283,7 +286,7 @@ async function start(){
    perfil:openPerfil,beneficios:openBeneficios,convites:openConvites,
    atividades:openAtividades,notificacoes:openNotificacoes,ajuda:async()=>{}
   })[section]();
-  latestNotification().catch(()=>{});
+  // Os avisos do sino são mantidos pela caixinha flutuante.
  }catch(error){
   $('pageContent').innerHTML='<section class="panel"><h2>Não foi possível carregar esta seção</h2><p id="loadError"></p><div class="actions"><a class="gold-button" href="./usuario.html">Voltar à área inicial</a></div></section>';
   $('loadError').textContent='Verifique sua conexão e tente novamente. '+(error?.message||'');
