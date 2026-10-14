@@ -8,7 +8,7 @@
 <section class="panel section" id="apoiadores"><div class="section-heading"><div><div class="eyebrow">🤝 PARCEIROS</div><h2>Nossos apoiadores</h2><p class="sub">Empresas e pessoas que ajudam a comunidade a crescer.</p></div><a class="btn alt" href="./#apoiadores">Vitrine pública ↗</a></div><div class="sponsor-grid" id="sponsorsGrid"><div class="empty">Carregando os apoiadores...</div></div></section></section>
 <section id="noAccess" class="panel section" hidden><h2>Você precisa entrar na sua conta</h2><p class="sub">Faça login para acessar seu painel pessoal.</p><a class="btn" href="./#entrar">Entrar</a></section></main><footer class="footer">GiraPrêmios • Área do participante • v0.8</footer></div>
 <script type="module">
-import {db,$,identity,setStatus,loadSponsors} from './app-config.js?v=05';
+import {db,$,identity,setStatus,loadSponsors} from './app-config.js?v=15';
 const result=await identity();
 if(result.error){setStatus('status','Não foi possível confirmar seu acesso. Atualize a página.','error');$('noAccess').hidden=false}
 else if(!result.user){location.replace('./#entrar')}
