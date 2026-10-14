@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#180b29"><link rel="icon" href="./icon.svg"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css?v=05"><link rel="stylesheet" href="./marine.css?v=08"><title>GiraPrêmios | Minha área</title></head><body class="ocean-site">
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#180b29"><link rel="icon" href="./icon.svg"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css?v=05"><link rel="stylesheet" href="./marine.css?v=08"><link rel="stylesheet" href="./sponsors-layout-v16.css?v=16"><title>GiraPrêmios | Minha área</title></head><body class="ocean-site">
 <div class="container"><header class="topbar"><a href="./#apoiadores" class="brand">🎡 Gira<em>Prêmios</em></a><nav class="links"><a href="#apoiadores">Apoiadores</a><a href="#perfil">Meu perfil</a><a href="./roleta.html">🎡 Roleta</a></nav></header>
 <main><div id="status" class="notice" role="status">Verificando seu acesso...</div><section id="panel" hidden>
 <div class="dashboard-head"><div><div class="eyebrow">👤 ÁREA DO PARTICIPANTE</div><h1>Olá, <span id="greeting">participante</span>! 💜</h1><p class="sub">Essa é sua página principal na comunidade GiraPrêmios.</p></div><button id="logout" class="btn alt">Sair da conta</button></div>
@@ -8,7 +8,7 @@
 <section class="panel section" id="apoiadores"><div class="section-heading"><div><div class="eyebrow">🤝 PARCEIROS</div><h2>Nossos apoiadores</h2><p class="sub">Empresas e pessoas que ajudam a comunidade a crescer.</p></div><a class="btn alt" href="./#apoiadores">Vitrine pública ↗</a></div><div class="sponsor-grid" id="sponsorsGrid"><div class="empty">Carregando os apoiadores...</div></div></section></section>
 <section id="noAccess" class="panel section" hidden><h2>Você precisa entrar na sua conta</h2><p class="sub">Faça login para acessar seu painel pessoal.</p><a class="btn" href="./#entrar">Entrar</a></section></main><footer class="footer">GiraPrêmios • Área do participante • v0.8</footer></div>
 <script type="module">
-import {db,$,identity,setStatus,loadSponsors} from './app-config.js?v=15';
+import {db,$,identity,setStatus,loadSponsors} from './app-config.js?v=16';
 const result=await identity();
 if(result.error){setStatus('status','Não foi possível confirmar seu acesso. Atualize a página.','error');$('noAccess').hidden=false}
 else if(!result.user){location.replace('./#entrar')}
