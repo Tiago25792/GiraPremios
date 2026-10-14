@@ -9,7 +9,7 @@ const brNumber=value=>new Intl.NumberFormat('pt-BR').format(Number(value)||0);
 const todayInBrazil=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const notify=(id,message,bad=false)=>{const el=$(id);if(!el)return;el.textContent=message;el.classList.toggle('error',bad)};
 const escapeUrlValue=str=>encodeURIComponent(str);
-const accountName=name=>{const first=(name||'').trim().split(/\s+/)[0]||'participante';return first.length>20?first.slice(0,20)+'…':first};
+const accountName=name=>{const first=(name||'').trim().split(/\s+/)[0]||'amigo';return first.length>15?first.slice(0,15)+'…':first};
 function showInfo(title,message){$('modalTitle').textContent=title;$('modalText').textContent=message;if(!$('informationDialog').open)$('informationDialog').showModal()}
 function drawWallet(record){
  if(!record)return;
@@ -20,6 +20,7 @@ function drawWallet(record){
  $('referralCode').textContent=record.referral_code||'—';
  const invited=Number(record.invites)||0;
  $('inviteProgressText').textContent=brNumber(invited)+'/20';
+ $('inviteBadge').textContent=brNumber(invited)+'/20';
  $('inviteFill').style.width=(Math.min(20,invited)/20*100)+'%';
  $('inviteProgress').setAttribute('aria-valuenow',String(Math.min(20,invited)));
  for(const limit of [5,10,20])$('tier'+limit).classList.toggle('done',invited>=limit);
@@ -136,7 +137,7 @@ async function start(){
  $('memberNav').hidden=false;
  $('userEmail').textContent=signedIn.email||'—';
  const profile=await db.from('profiles').select('display_name').eq('id',signedIn.id).maybeSingle();
- if(!profile.error){$('displayName').value=profile.data?.display_name||'';$('helloName').textContent=accountName(profile.data?.display_name)}
+ if(!profile.error){$('displayName').value=profile.data?.display_name||'';$('helloName').textContent=accountName(profile.data?.display_name||signedIn.user_metadata?.full_name||signedIn.user_metadata?.name||'amigo')}
  else notify('profileStatus','Não foi possível carregar seu nome.',true);
  await loadWallet();
  await applyPendingReferral();
