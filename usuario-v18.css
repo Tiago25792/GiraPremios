@@ -1,0 +1,149 @@
+
+/* V1.8 — correções de fidelidade ao mockup original aprovado.
+   Mantém os dados dinâmicos e a sinalização de recursos não disponíveis. */
+:root{--dashline:#d5f3ff;--dashtext:#092c76}
+body.member-ocean{background:
+radial-gradient(ellipse 55% 22% at 50% 5%,#41d6ff90,transparent 82%),
+linear-gradient(180deg,#0065e4 0%,#0a9efa 42%,#9ceeff 100%)!important}
+.member-container{width:min(100%,1080px);padding:0 14px 98px}
+.member-top{min-height:69px;padding:7px 10px 5px;border-bottom:0}
+.member-logo{gap:6px;font-weight:1000;font-size:clamp(20px,4.8vw,32px);line-height:1.1}
+.member-logo img{width:clamp(43px,6vw,57px);height:clamp(43px,6vw,57px)}
+.member-top .member-circle{height:40px;min-width:40px;border:2px solid #9feaff;border-radius:13px;background:#0870e9a3;font-size:21px}
+.member-hero{margin:3px 2px 0;min-height:135px;border-radius:26px 26px 0 0;border:3px solid #d1fbff;
+background:radial-gradient(ellipse at 78% 15%,#a9f7ff8a,transparent 50%),linear-gradient(120deg,#0466e8 0%,#069df6 60%,#2ad3fa 100%);box-shadow:0 7px 22px #0566b455,inset 0 3px #fff9}
+.member-hero:before{height:35%;background:linear-gradient(180deg,#62e1ff8c 0,#12bafa6d 60%,#0091d4e1);
+clip-path:polygon(0 30%,9% 35%,18% 14%,25% 30%,38% 15%,49% 31%,63% 10%,77% 27%,87% 12%,100% 36%,100% 100%,0 100%)}
+.member-hero:after{content:"";position:absolute;right:0;bottom:0;width:30%;height:47%;background:radial-gradient(ellipse at 85% 85%,#e6e7a3cc 0,#c2d9bd77 26%,transparent 45%);pointer-events:none}
+.hero-welcome{padding:24px 15px 36px;max-width:69%}
+.hero-welcome h1{font-size:clamp(26px,4.5vw,48px);line-height:1.04;letter-spacing:-1.45px;text-shadow:0 3px 0 #0757ab,0 6px 8px #06529c70}
+.hero-welcome h1 strong{color:#ffdf75;text-shadow:0 3px 0 #ae671b,0 5px 4px #0952a98e}
+.hero-welcome p{font-size:clamp(11px,1.9vw,18px);font-weight:790;margin-top:8px}
+.hero-decoration{width:50%;z-index:3}
+.hero-sailor{right:7%;bottom:-19px;height:clamp(155px,19vw,235px);width:clamp(128px,19vw,230px);object-fit:contain;filter:drop-shadow(0 4px 2px #0462a65c)}
+.hero-cloud{font-size:49px;top:-17px;right:22%;opacity:.75}
+.hero-island{font-size:45px;bottom:5px;right:0}
+.hero-sparkle{font-size:25px;top:8px;left:7%}
+.member-wallet-cards{margin:-5px 7px 13px;gap:8px;z-index:5}
+.wallet-card{padding:10px 9px 10px;gap:7px;min-height:90px;border:2px solid #afefff;border-radius:17px;background:linear-gradient(165deg,#fff,#e7f9ff);box-shadow:0 5px 12px #005b9b4b,inset 0 2px #fff}
+.wallet-icon{width:50px;height:53px;flex:0 0 50px;font-size:31px;background:linear-gradient(135deg,#fff6de,#eafaff);border-radius:12px}
+.wallet-title{font-size:clamp(12px,1.8vw,16px);font-weight:950}
+.wallet-number{font-size:clamp(23px,3.7vw,34px);line-height:1.13;letter-spacing:-.6px;margin:0}
+.wallet-note{font-size:clamp(9px,1.5vw,11px);white-space:normal;line-height:1.25}
+.wallet-arrow{font-size:18px;color:#0080de}
+.member-block{margin:11px 2px;padding:14px 16px;border:2px solid #e4faff;border-radius:23px;background:linear-gradient(135deg,#fcffff,#e7faff);box-shadow:0 7px 18px #01579f3c}
+.block-title{margin-bottom:10px}
+.block-title h2{font-size:clamp(20px,2.7vw,29px);letter-spacing:-.8px}
+.block-title h2 span{font-size:28px}
+.block-title a,.block-title button{font-size:12px}
+.game-showcase{margin:1px 2px 11px;min-height:243px;max-height:400px;padding:13px 15px 18px;border-radius:22px;background:radial-gradient(ellipse at 53% 36%,#b0f7ff65,transparent 47%),linear-gradient(130deg,#087ee3 0%,#05bafb 70%,#73eaff);border:3px solid #bdf6ff;box-shadow:0 9px 26px #086bac68,inset 0 2px #d7ffff}
+.game-showcase:before{height:14%;border-top:4px solid #f6d69a;background:linear-gradient(#e4ad72,#b77844)}
+.game-showcase:after{content:"";position:absolute;left:-1%;bottom:13%;right:0;height:16px;background:radial-gradient(ellipse,#d1feff99,transparent 80%);pointer-events:none}
+.game-mascot{left:-1%;bottom:-7px;width:30%;height:82%;object-fit:contain;z-index:3}
+.game-wheel{right:-2%;bottom:-12px;width:42%;height:110%;z-index:1;object-fit:contain}
+.game-message{position:relative;z-index:4;max-width:68%;margin:18px auto 0;pointer-events:none}
+.game-message h2{font-size:clamp(24px,4.7vw,47px);letter-spacing:-1px;line-height:1.09}
+.game-message h2 span{text-shadow:0 2px 0 #b36d13,0 4px 6px #0a5aad}
+.game-message p{max-width:360px;margin:4px auto 11px;font-size:clamp(12px,2vw,21px);line-height:1.18}
+.game-message .gold-cta{pointer-events:auto;min-height:50px;min-width:clamp(152px,33vw,295px);font-size:clamp(16px,2.4vw,24px);border-radius:15px;padding:11px 18px}
+.game-demo-tag{position:absolute;left:12px;right:12px;bottom:4px;z-index:5;font-size:10px;line-height:1.25;background:#0758a0a8;border-radius:9px;padding:3px 7px;text-align:center;text-shadow:none}
+.scene-palm{font-size:40px;top:14px;left:7px}
+.scene-far{top:6px;right:7px}
+.benefits-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.benefit-item{display:grid;grid-template-columns:65px minmax(0,1fr);grid-template-rows:auto;align-items:center;column-gap:9px;min-height:92px;padding:10px 11px;border-radius:15px;text-align:left}
+.benefit-icon{width:61px;height:64px;min-width:61px;border-radius:14px;font-size:39px}
+.benefit-name{font-size:clamp(12px,1.75vw,17px);line-height:1.2}
+.benefit-description{font-size:clamp(10px,1.45vw,12px);line-height:1.18}
+.benefit-future{font-size:9px;margin-top:3px}
+.benefit-chevron{position:absolute;right:5px;top:7px;font-size:14px}
+.invite-section{padding:14px 16px 14px}
+.invite-header{gap:7px}
+.invite-header h2{font-size:clamp(21px,3vw,29px);line-height:1.1}
+.invite-header p{font-size:clamp(11px,1.4vw,14px)}
+.invite-icon{font-size:30px}
+.invite-share{padding:10px 12px;font-size:12px;min-width:0;border-radius:14px}
+.progress-shell{margin:13px 12px 4px 4px;height:17px;background:#a8d5ee}
+.progress-fill{background:linear-gradient(180deg,#6bec7b,#13c783)}
+.milestones{margin-top:-17px;position:relative;z-index:2}
+.milestone-icon{font-size:27px;line-height:1.1}
+.milestone strong{font-size:11px}
+.milestone small{font-size:10px;color:#12995c}
+.invite-foot{font-size:11px;margin-top:11px}
+.invite-foot .invite-code{font-size:11px}
+.invite-section .member-note{font-size:10px!important;line-height:1.3;margin-top:7px!important}
+.activity-list{gap:4px}
+.activity-row{min-height:57px;border-radius:14px;padding:7px 12px}
+.activity-symbol{width:38px;height:40px;font-size:24px;border-radius:12px}
+.activity-body strong{font-size:13px}
+.activity-body span{font-size:11px}
+.activity-date{font-size:10px}
+.daily-reward{min-height:0;margin:10px 2px 14px;border-radius:17px;padding:10px 15px;background:#f0fcff}
+.daily-reward strong{font-size:13px}
+.daily-reward small{font-size:11px}
+.daily-reward button{padding:8px 15px;min-height:35px;font-size:12px;box-shadow:0 2px 0 #c6852c}
+.member-sponsor{margin-top:12px}
+.member-nav{left:50%;bottom:max(7px,env(safe-area-inset-bottom));width:min(calc(100% - 22px),1040px);border:2px solid #e5ffff;border-radius:22px;padding:5px 9px;min-height:58px;background:#f4fcfff5;box-shadow:0 6px 22px #035da35c}
+.member-nav a,.member-nav button{padding:5px 2px 4px;border-radius:15px;font-size:10px;gap:1px;line-height:1.2}
+.member-nav .nav-icon{font-size:20px}
+.member-nav .current{background:linear-gradient(145deg,#1cacff,#0069df);box-shadow:0 3px 9px #055cb654}
+.member-container{padding-bottom:95px}
+#bonusdiario{scroll-margin-top:15px}
+@media(max-width:700px){
+ .member-container{padding-left:10px;padding-right:10px}
+ .member-top{min-height:64px}
+ .member-top-actions{gap:5px}
+ .member-hero{min-height:132px}
+ .hero-welcome{max-width:71%;padding:23px 11px 30px}
+ .hero-welcome h1{font-size:clamp(23px,5.45vw,34px);letter-spacing:-1px}
+ .hero-welcome p{font-size:clamp(11px,2.1vw,14px);line-height:1.25}
+ .hero-sailor{right:0;bottom:-21px;width:clamp(124px,32vw,205px);height:164px}
+ .hero-island{font-size:32px}
+ .member-wallet-cards{gap:6px;margin:-5px 5px 12px}
+ .wallet-card{display:grid;grid-template-columns:33px minmax(0,1fr);gap:5px;min-height:82px;padding:8px 5px;align-items:center;text-align:left;flex-direction:row;border-radius:14px}
+ .wallet-icon{width:32px;height:37px;font-size:24px;min-width:0}
+ .wallet-copy{text-align:left;min-width:0}
+ .wallet-title{font-size:clamp(10px,2.2vw,13px)}
+ .wallet-number{font-size:clamp(21px,5vw,29px);line-height:1.1}
+ .wallet-note{font-size:clamp(8px,1.8vw,10px)}
+ .game-showcase{height:250px;min-height:0}
+ .game-mascot{width:37%;height:81%;left:-3%;bottom:-8px}
+ .game-wheel{width:49%;height:100%;right:-5%;bottom:-6px}
+ .game-message{max-width:72%;margin-top:15px}
+ .game-message h2{font-size:clamp(23px,5.5vw,36px)}
+ .game-message p{font-size:clamp(11px,2.5vw,16px);margin-bottom:10px}
+ .game-message .gold-cta{font-size:clamp(15px,3.7vw,20px);padding:8px 11px;min-height:43px}
+ .game-demo-tag{font-size:9px;bottom:2px}
+ .member-block{padding:12px 10px;border-radius:19px}
+ .benefits-grid{gap:5px}
+ .benefit-item{display:grid;grid-template-columns:33px minmax(0,1fr);grid-template-rows:auto;gap:5px;padding:7px 5px;min-height:102px;border-radius:13px}
+ .benefit-item>span:nth-child(2){min-width:0}
+ .benefit-icon{width:32px;min-width:0;height:43px;font-size:25px;border-radius:10px}
+ .benefit-name{font-size:clamp(10px,2.25vw,13px);padding-right:8px;overflow-wrap:anywhere}
+ .benefit-description{font-size:clamp(9px,1.9vw,11px)}
+ .benefit-future{font-size:8px}
+ .benefit-chevron{top:3px;right:2px;font-size:13px}
+ .invite-header>div{min-width:0}
+ .invite-share{font-size:11px;padding:8px 10px}
+ .invite-icon{font-size:26px}
+ .milestones{margin-top:-7px}
+ .milestone-icon{font-size:24px}
+ .invite-foot{margin-top:9px}
+ .member-nav{min-height:60px}
+ .member-nav a{font-size:10px}
+ .member-nav .nav-icon{font-size:22px}
+}
+@media(max-width:375px){
+ .member-logo{font-size:20px}
+ .member-logo img{width:40px;height:40px}
+ .hero-welcome h1{font-size:22px}
+ .hero-welcome{max-width:73%}
+ .wallet-card{grid-template-columns:29px minmax(0,1fr);padding:7px 4px;gap:4px}
+ .wallet-icon{width:29px;height:33px;font-size:21px}
+ .wallet-title{font-size:10px}
+ .wallet-number{font-size:22px}
+ .wallet-note{font-size:8px}
+ .benefit-item{grid-template-columns:28px minmax(0,1fr);gap:3px}
+ .benefit-icon{width:27px;height:33px;font-size:23px}
+ .game-showcase{height:235px}
+ .game-message .gold-cta{min-width:160px}
+}
