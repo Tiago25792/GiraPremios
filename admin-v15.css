@@ -1,0 +1,31 @@
+/* GiraPrêmios • Painel de apoiadores v1.5 */
+body.ocean-site .sponsor-admin-item{display:grid;grid-template-columns:88px minmax(0,1fr);align-items:start;gap:13px;margin:13px 0;padding:13px;border:1px solid #9ad6fb;border-radius:16px;background:linear-gradient(120deg,#fff,#e9f9ff);box-shadow:0 6px 15px #0069bd18;color:#0c468b}
+body.ocean-site .sponsor-admin-cover{height:90px;width:88px;background:linear-gradient(125deg,#0276e7,#2cccf2);border:2px solid #9bdbff;border-radius:13px;display:grid;place-items:center;overflow:hidden;font-size:35px}
+body.ocean-site .sponsor-admin-cover img{width:100%;height:100%;object-fit:cover}
+body.ocean-site .sponsor-admin-info{min-width:0}
+body.ocean-site .sponsor-admin-info strong{font-size:17px;overflow-wrap:anywhere}
+body.ocean-site .sponsor-admin-info small{font-size:12px;color:#4c7399}
+body.ocean-site .sponsor-admin-info p{color:#486d91;font-size:13px;line-height:1.45;margin:6px 0;overflow-wrap:anywhere}
+body.ocean-site .admin-name-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+body.ocean-site .label-live,body.ocean-site .label-draft{padding:3px 8px;border-radius:99px;font-size:10px;font-weight:800}
+body.ocean-site .label-live{color:#075c42;background:#c8f7dd;border:1px solid #80d7ad}
+body.ocean-site .label-draft{color:#8e5704;background:#fff0c8;border:1px solid #f3cb79}
+body.ocean-site .admin-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+body.ocean-site .admin-actions button{font-size:12px;min-height:36px;padding:8px 11px;border-radius:10px;background:#0978e8;color:white;border:1px solid #7bcaf6}
+body.ocean-site .admin-actions .danger{background:#ffe8e8;color:#ae2d3b;border-color:#efa7ad}
+body.ocean-site #formHeading{margin-bottom:4px}
+body.ocean-site .form-helper{font-size:12px;color:#557b9d}
+body.ocean-site .form-controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+body.ocean-site .form-controls button{margin:0}
+body.ocean-site .photo-preview{display:grid;place-items:center;min-height:155px;border:2px dashed #98c9ec;border-radius:16px;background:linear-gradient(135deg,#e3f6ff,#fff);overflow:hidden;color:#5482ae;margin-top:10px}
+body.ocean-site .photo-preview img{max-width:100%;width:100%;height:180px;object-fit:contain}
+body.ocean-site .photo-preview span{font-size:13px;padding:18px;text-align:center}
+body.ocean-site .filters{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:13px 0}
+body.ocean-site .filters input{flex:1 1 180px;width:auto;min-width:130px}
+body.ocean-site .filters select{width:auto;min-width:150px;background:#fff;color:#134f88;border:1px solid #8bc5e9}
+body.ocean-site #status[data-type="error"]{background:#ffebeb!important;color:#9f1d32!important;border:1px solid #f6b0b8}
+body.ocean-site #status[data-type="good"]{background:#d6faed!important;color:#075d48!important;border:1px solid #88d6bb}
+body.ocean-site .card label{color:#195287;font-weight:650}
+body.ocean-site .card input[type="checkbox"]{width:auto;accent-color:#0879ed}
+body.ocean-site #order{max-width:200px}
+@media(max-width:440px){body.ocean-site .sponsor-admin-item{grid-template-columns:66px minmax(0,1fr);gap:9px;padding:10px}body.ocean-site .sponsor-admin-cover{width:65px;height:72px}body.ocean-site .admin-actions button{font-size:11px;padding:7px 9px}}
