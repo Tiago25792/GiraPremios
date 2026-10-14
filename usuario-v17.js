@@ -62,7 +62,7 @@ async function loadActivities(){
  const {data,error}=await db.from('member_activities').select('id,kind,title,description,coins_delta,created_at').eq('user_id',signedIn.id).order('created_at',{ascending:false}).limit(50);
  if(error){const root=$('activityList');root.textContent='Não foi possível carregar o histórico.';return}
  allActivities=data||[];renderActivities();
- const viewed=localStorage.getItem('gp_activity_seen');
+ const viewed=localStorage.getItem('gp_seen_'+signedIn.id);
  const newest=allActivities[0]?.created_at;
  if(newest&&(!viewed||new Date(newest)>new Date(viewed)))document.querySelector('.member-alert-dot').style.display='block';
  else document.querySelector('.member-alert-dot').style.display='none';
@@ -122,7 +122,7 @@ async function saveProfile(event){
 async function openNotifications(){
  await loadActivities();
  if(allActivities.length){
-  localStorage.setItem('gp_activity_seen',allActivities[0].created_at);
+  localStorage.setItem('gp_seen_'+signedIn.id,allActivities[0].created_at);
   document.querySelector('.member-alert-dot').style.display='none';
   showInfo('Suas atividades','Você tem '+brNumber(allActivities.length)+' registro(s) recente(s). Veja a seção Atividades recentes para conferir moedas, convites e giros.');
  }else showInfo('Notificações','Ainda não há novidades em sua conta. Receba seu bônus diário para registrar sua primeira atividade.');
@@ -150,10 +150,10 @@ async function start(){
 $('checkinBtn').addEventListener('click',checkin);
 $('shareInvite').addEventListener('click',shareInvite);
 $('profileForm').addEventListener('submit',saveProfile);
-$('showAllActivity').addEventListener('click',()=>{showingAll=!showingAll;renderActivities()});
-$('allBenefits').addEventListener('click',()=>showInfo('Seus benefícios','A vitrine de cupons, brindes e acesso VIP está em preparação. Nenhuma dessas recompensas está disponível para resgate neste momento. Quando forem ativadas, mostraremos parceiros e regras aqui.'));
-for(const el of document.querySelectorAll('[data-benefit]'))el.addEventListener('click',()=>showInfo(el.dataset.benefit,'Este cartão faz parte do design da área do participante. O benefício ainda não está disponível e não representa um prêmio concedido.'));
-$('notifications').addEventListener('click',openNotifications);
+$('showAllActivity').addEventListener('click',()=>{location.href='./atividades.html'});
+$('allBenefits').addEventListener('click',()=>{location.href='./beneficios.html'});
+for(const el of document.querySelectorAll('[data-benefit]'))el.addEventListener('click',()=>{location.href='./beneficios.html'});
+$('notifications').addEventListener('click',()=>{location.href='./notificacoes.html'});
 $('closeDialog').addEventListener('click',()=>$('informationDialog').close());
 $('signOut').addEventListener('click',async()=>{await db.auth.signOut();location.replace('./#entrar')});
 for(const tab of document.querySelectorAll('.member-nav a[href^="#"]'))tab.addEventListener('click',()=>{for(const item of document.querySelectorAll('.member-nav a'))item.classList.toggle('current',item===tab)});
