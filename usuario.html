@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./styles.css?v=16">
 <link rel="stylesheet" href="./marine.css?v=08">
 <link rel="stylesheet" href="./sponsors-layout-v16.css?v=16">
-<link rel="stylesheet" href="./usuario-v17.css?v=17">
+<link rel="stylesheet" href="./usuario-v17.css?v=17"><link rel="stylesheet" href="./usuario-v18.css?v=18">
 <title>Minha área | GiraPrêmios</title>
 </head>
 <body class="member-ocean">
@@ -38,15 +38,15 @@
         <p>Sua área de benefícios e recompensas.</p>
       </div>
       <div class="hero-decoration" aria-hidden="true">
-        <span class="hero-cloud">☁️</span>
-        <span class="hero-island">🏝️</span>
+        <span class="hero-cloud">☁️ 🕊️</span>
+        <span class="hero-island">🏝️ 🌴</span>
         <span class="hero-sparkle">✨</span>
         <img src="./mascote-hd.svg?v=14" alt="" class="hero-sailor" width="220" height="250">
       </div>
     </section>
 
     <section class="member-wallet-cards" aria-label="Seus indicadores">
-      <a class="wallet-card" href="#recompensas" title="Saldo de moedas virtuais">
+      <a class="wallet-card" href="#bonusdiario" title="Saldo de moedas virtuais">
         <span class="wallet-icon" aria-hidden="true">🪙</span>
         <span class="wallet-copy">
           <span class="wallet-title">Moedas</span>
@@ -71,13 +71,6 @@
         </span><span class="wallet-arrow">›</span>
       </a>
     </section>
-
-    <section class="daily-reward" aria-label="Bônus do dia">
-      <div><strong>🎁 Presente diário: 50 moedas + 1 giro</strong>
-      <small id="dailyHint">Entre diariamente para acumular moedas e giros virtuais.</small></div>
-      <button id="checkinBtn" type="button">Receber bônus</button>
-    </section>
-    <p class="member-status" id="rewardStatus" role="status" aria-live="polite"></p>
 
     <section class="game-showcase" aria-labelledby="gameTitle">
       <span class="scene-palm" aria-hidden="true">🌴</span><span class="scene-far" aria-hidden="true">✦ ✨</span>
@@ -121,9 +114,9 @@
         </div>
         <button class="gold-cta invite-share" id="shareInvite" type="button">↗ Compartilhar convite</button>
       </div>
-      <div class="progress-shell" role="progressbar" aria-label="Progresso das metas de convites" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="inviteProgress">
+      <div class="progress-with-score"><div class="progress-shell" role="progressbar" aria-label="Progresso das metas de convites" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="inviteProgress">
         <div class="progress-fill" id="inviteFill"></div>
-      </div>
+      </div><div class="invite-score"><span aria-hidden="true">🪙</span><strong id="inviteBadge">0/20</strong><small>convites</small></div></div>
       <div class="milestones">
         <div class="milestone" id="tier5"><div class="milestone-icon">🎁</div><strong>5 convites</strong><small>+250 moedas</small></div>
         <div class="milestone" id="tier10"><div class="milestone-icon">🎁</div><strong>10 convites</strong><small>+500 moedas</small></div>
@@ -139,6 +132,13 @@
         <button id="showAllActivity" type="button">Ver todas ›</button></div>
       <div class="activity-list" id="activityList"><p class="empty-state">Carregando atividades...</p></div>
     </section>
+
+    <section id="bonusdiario" class="daily-reward" aria-label="Bônus do dia">
+      <div><strong>🎁 Presente diário: 50 moedas + 1 giro</strong>
+      <small id="dailyHint">Entre diariamente para acumular moedas e giros virtuais.</small></div>
+      <button id="checkinBtn" type="button">Receber bônus</button>
+    </section>
+    <p class="member-status" id="rewardStatus" role="status" aria-live="polite"></p>
 
     <div class="account-layout" id="perfil">
       <section class="member-block member-profile" aria-labelledby="profileTitle">
@@ -165,7 +165,7 @@
       <div class="block-title"><h2 id="sponsorTitle"><span aria-hidden="true">🤝</span> Nossos apoiadores</h2><a href="./#apoiadores">Ver vitrine ›</a></div>
       <div id="sponsorsGrid" class="sponsor-grid"><p class="empty-state">Carregando apoiadores...</p></div>
     </section>
-    <footer class="member-footer">© GiraPrêmios Solidária • Sua comunidade de benefícios • V1.7</footer>
+    <footer class="member-footer">© GiraPrêmios Solidária • Sua comunidade de benefícios • V1.8</footer>
   </main>
 </div>
 
@@ -181,5 +181,5 @@
   <p id="modalText">Novidades chegando.</p>
   <button type="button" class="dialog-close" id="closeDialog">Entendi</button>
 </dialog>
-<script type="module" src="./usuario-v17.js?v=17"></script>
+<script type="module" src="./usuario-v17.js?v=18"></script>
 </body></html>
