@@ -1,19 +1,185 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#180b29"><link rel="icon" href="./icon.svg"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css?v=05"><link rel="stylesheet" href="./marine.css?v=08"><link rel="stylesheet" href="./sponsors-layout-v16.css?v=16"><title>GiraPrêmios | Minha área</title></head><body class="ocean-site">
-<div class="container"><header class="topbar"><a href="./#apoiadores" class="brand">🎡 Gira<em>Prêmios</em></a><nav class="links"><a href="#apoiadores">Apoiadores</a><a href="#perfil">Meu perfil</a><a href="./roleta.html">🎡 Roleta</a></nav></header>
-<main><div id="status" class="notice" role="status">Verificando seu acesso...</div><section id="panel" hidden>
-<div class="dashboard-head"><div><div class="eyebrow">👤 ÁREA DO PARTICIPANTE</div><h1>Olá, <span id="greeting">participante</span>! 💜</h1><p class="sub">Essa é sua página principal na comunidade GiraPrêmios.</p></div><button id="logout" class="btn alt">Sair da conta</button></div>
-<section class="panel section" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><div style="flex:1;min-width:185px"><div class="eyebrow">🎡 NOVIDADE VISUAL</div><h2>Roleta Gire e Ganhe</h2><p class="sub">Conheça nossa nova roleta azul e dourada com o passarinho marinheiro. Por enquanto, o giro é uma demonstração sem prêmios reais.</p><a href="./roleta.html" class="btn">Conhecer a roleta →</a></div><div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3px"><img src="./roleta-marinha.svg?v=12" width="138" height="138" style="max-width:36vw" alt="Roleta dourada e azul"><img src="./mascote-oficial.svg?v=12" width="80" height="98" alt="Passarinho marinheiro"></div></section><div class="tiles"><article class="tile"><div class="emoji">🪙</div><h3>Minhas moedas</h3><p class="value">Em breve</p><p>Seu saldo ficará disponível quando o sistema de moedas for lançado.</p></article><article class="tile"><div class="emoji">🎡</div><h3>Roleta diária</h3><p class="value">Demonstração</p><p>Veja a roleta demonstrativa. Distribuição real de benefícios ainda não ativa.</p></article><article class="tile"><div class="emoji">🎁</div><h3>Recompensas</h3><p class="value">Em breve</p><p>Acompanhe aqui as novidades da comunidade.</p></article></div>
-<div class="two-col"><section class="panel section" id="perfil"><div class="eyebrow">🙋 MEUS DADOS</div><h2>Meu perfil</h2><p class="sub">Seu cadastro está vinculado ao Supabase.</p><p class="mini"><strong>E-mail:</strong> <span id="email"></span></p><form id="profileForm"><label class="field" for="displayName">Como deseja ser chamado?</label><input class="input" id="displayName" type="text" maxlength="70" placeholder="Seu nome"><button type="submit" class="btn" style="margin-top:14px" id="save">Salvar nome</button></form><p id="saveStatus" class="status" role="status"></p></section>
-<section class="panel section"><div class="eyebrow">📣 NOVIDADES</div><h2>Bem-vindo à comunidade</h2><div class="listrow"><span class="mark">✅</span><div><strong>Seu acesso está ativo</strong><div class="mini">Você já pode entrar nesta área com seu e-mail e senha.</div></div></div><div class="listrow"><span class="mark">🎁</span><div><strong>Benefícios gratuitos</strong><div class="mini">Novas funções serão liberadas em futuras atualizações.</div></div></div><div class="listrow"><span class="mark">🤝</span><div><strong>Conheça os apoiadores</strong><div class="mini">Veja as propagandas dos parceiros logo abaixo.</div></div></div></section></div>
-<section class="panel section" id="apoiadores"><div class="section-heading"><div><div class="eyebrow">🤝 PARCEIROS</div><h2>Nossos apoiadores</h2><p class="sub">Empresas e pessoas que ajudam a comunidade a crescer.</p></div><a class="btn alt" href="./#apoiadores">Vitrine pública ↗</a></div><div class="sponsor-grid" id="sponsorsGrid"><div class="empty">Carregando os apoiadores...</div></div></section></section>
-<section id="noAccess" class="panel section" hidden><h2>Você precisa entrar na sua conta</h2><p class="sub">Faça login para acessar seu painel pessoal.</p><a class="btn" href="./#entrar">Entrar</a></section></main><footer class="footer">GiraPrêmios • Área do participante • v0.8</footer></div>
-<script type="module">
-import {db,$,identity,setStatus,loadSponsors} from './app-config.js?v=16';
-const result=await identity();
-if(result.error){setStatus('status','Não foi possível confirmar seu acesso. Atualize a página.','error');$('noAccess').hidden=false}
-else if(!result.user){location.replace('./#entrar')}
-else if(result.role==='admin'){location.replace('./admin.html')}
-else{$('status').hidden=true;$('panel').hidden=false;$('email').textContent=result.user.email;const profile=await db.from('profiles').select('display_name').eq('id',result.user.id).maybeSingle();if(profile.error){setStatus('saveStatus','Não foi possível carregar seu perfil.','error')}else{$('displayName').value=profile.data?.display_name||'';$('greeting').textContent=profile.data?.display_name?.trim()?.split(' ')[0]||'participante'}await loadSponsors($('sponsorsGrid'))}
-$('profileForm').onsubmit=async e=>{e.preventDefault();$('save').disabled=true;const name=$('displayName').value.trim();const {error}=await db.from('profiles').update({display_name:name,updated_at:new Date().toISOString()}).eq('id',result.user.id);$('save').disabled=false;if(error)setStatus('saveStatus','Erro ao salvar: '+error.message,'error');else{setStatus('saveStatus','✅ Seu nome foi atualizado.','good');$('greeting').textContent=name.split(' ')[0]||'participante'}};
-$('logout').onclick=async()=>{await db.auth.signOut();location.replace('./#entrar')};
-</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087bef">
+<meta name="description" content="Sua área GiraPrêmios: moedas virtuais, giros, benefícios, convites e atividades.">
+<link rel="icon" href="./mascote-hd.svg?v=17" type="image/svg+xml">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./styles.css?v=16">
+<link rel="stylesheet" href="./marine.css?v=08">
+<link rel="stylesheet" href="./sponsors-layout-v16.css?v=16">
+<link rel="stylesheet" href="./usuario-v17.css?v=17">
+<title>Minha área | GiraPrêmios</title>
+</head>
+<body class="member-ocean">
+<div class="member-container">
+  <header class="member-top">
+    <a class="member-logo" href="./" aria-label="GiraPrêmios, página inicial">
+      <img src="./roleta-marinha.svg" alt="" aria-hidden="true" width="52" height="52" loading="eager">
+      <span>Gira<b>Prêmios</b></span>
+    </a>
+    <div class="member-top-actions">
+      <a class="member-return" href="./#apoiadores">Ver apoiadores</a>
+      <button class="member-circle" type="button" id="notifications" aria-label="Ver atividades e notificações">🔔<span class="member-alert-dot"></span></button>
+    </div>
+  </header>
+  <div id="sessionStatus" class="daily-reward" role="status" aria-live="polite"><strong>🔐 Verificando seu acesso...</strong></div>
+  <section id="noAccess" class="member-block" hidden>
+    <h2>Entre para acessar sua área</h2>
+    <p>Seu painel pessoal é protegido pelo login da GiraPrêmios.</p>
+    <a class="gold-cta" href="./#entrar">Entrar na minha conta ↗</a>
+  </section>
+  <main id="memberPanel" hidden>
+    <section class="member-hero" id="inicio" aria-labelledby="memberWelcome">
+      <div class="hero-welcome">
+        <h1 id="memberWelcome">Olá, <strong id="helloName">participante</strong>! 👋</h1>
+        <p>Sua área de benefícios e recompensas.</p>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <span class="hero-cloud">☁️</span>
+        <span class="hero-island">🏝️</span>
+        <span class="hero-sparkle">✨</span>
+        <img src="./mascote-hd.svg?v=14" alt="" class="hero-sailor" width="220" height="250">
+      </div>
+    </section>
+
+    <section class="member-wallet-cards" aria-label="Seus indicadores">
+      <a class="wallet-card" href="#recompensas" title="Saldo de moedas virtuais">
+        <span class="wallet-icon" aria-hidden="true">🪙</span>
+        <span class="wallet-copy">
+          <span class="wallet-title">Moedas</span>
+          <strong class="wallet-number" id="coinBalance">—</strong>
+          <span class="wallet-note">Suas moedas</span>
+        </span><span class="wallet-arrow">›</span>
+      </a>
+      <a class="wallet-card" href="./roleta.html" title="Veja a roleta demonstrativa">
+        <span class="wallet-icon" aria-hidden="true">☸️</span>
+        <span class="wallet-copy">
+          <span class="wallet-title">Giros</span>
+          <strong class="wallet-number" id="spinBalance">—</strong>
+          <span class="wallet-note">Acumulados</span>
+        </span><span class="wallet-arrow">›</span>
+      </a>
+      <a class="wallet-card" href="#convites" title="Número de amigos indicados">
+        <span class="wallet-icon" aria-hidden="true">👥</span>
+        <span class="wallet-copy">
+          <span class="wallet-title">Convites</span>
+          <strong class="wallet-number" id="inviteCount">—</strong>
+          <span class="wallet-note">Amigos indicados</span>
+        </span><span class="wallet-arrow">›</span>
+      </a>
+    </section>
+
+    <section class="daily-reward" aria-label="Bônus do dia">
+      <div><strong>🎁 Presente diário: 50 moedas + 1 giro</strong>
+      <small id="dailyHint">Entre diariamente para acumular moedas e giros virtuais.</small></div>
+      <button id="checkinBtn" type="button">Receber bônus</button>
+    </section>
+    <p class="member-status" id="rewardStatus" role="status" aria-live="polite"></p>
+
+    <section class="game-showcase" aria-labelledby="gameTitle">
+      <span class="scene-palm" aria-hidden="true">🌴</span><span class="scene-far" aria-hidden="true">✦ ✨</span>
+      <img class="game-mascot" src="./mascote-hd.svg?v=14" alt="Passarinho marinheiro da GiraPrêmios">
+      <img class="game-wheel" src="./roleta-marinha.svg?v=12" alt="Roleta azul, branca e dourada com brindes e moedas ilustrativos">
+      <div class="game-message">
+        <h2 id="gameTitle">Gire a <span>Roleta</span></h2>
+        <p>e descubra benefícios incríveis!</p>
+        <a class="gold-cta" href="./roleta.html">Girar agora ›</a>
+      </div>
+      <span class="game-demo-tag">🎮 Roleta em demonstração — sem resgate ou concessão de prêmios</span>
+    </section>
+
+    <section class="member-block" id="beneficios" aria-labelledby="benefitTitle">
+      <div class="block-title">
+        <h2 id="benefitTitle"><span aria-hidden="true">🎁</span> Seus benefícios</h2>
+        <button id="allBenefits" type="button">Ver todos ›</button>
+      </div>
+      <div class="benefits-grid">
+        <button class="benefit-item" type="button" data-benefit="Cupom de 10%">
+          <span class="benefit-icon" aria-hidden="true">🎟️</span>
+          <span><strong class="benefit-name">Cupom 10%</strong><span class="benefit-description">Em produtos selecionados</span><span class="benefit-future">Em preparação</span></span><span class="benefit-chevron">›</span>
+        </button>
+        <button class="benefit-item" type="button" data-benefit="Brinde">
+          <span class="benefit-icon" aria-hidden="true">🎁</span>
+          <span><strong class="benefit-name">Brinde</strong><span class="benefit-description">Aguarde novos parceiros</span><span class="benefit-future">Em preparação</span></span><span class="benefit-chevron">›</span>
+        </button>
+        <button class="benefit-item" type="button" data-benefit="Acesso VIP">
+          <span class="benefit-icon" aria-hidden="true">👑</span>
+          <span><strong class="benefit-name">Acesso VIP</strong><span class="benefit-description">Conteúdos e vantagens exclusivas</span><span class="benefit-future">Em preparação</span></span><span class="benefit-chevron">›</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="member-block invite-section" id="convites" aria-labelledby="invitationTitle">
+      <div class="invite-header">
+        <div style="display:flex;align-items:center;gap:7px">
+          <span class="invite-icon" aria-hidden="true">👥</span>
+          <div><h2 id="invitationTitle">Convide e ganhe</h2>
+            <p>Convide amigos e acumule moedas virtuais.</p></div>
+        </div>
+        <button class="gold-cta invite-share" id="shareInvite" type="button">↗ Compartilhar convite</button>
+      </div>
+      <div class="progress-shell" role="progressbar" aria-label="Progresso das metas de convites" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="inviteProgress">
+        <div class="progress-fill" id="inviteFill"></div>
+      </div>
+      <div class="milestones">
+        <div class="milestone" id="tier5"><div class="milestone-icon">🎁</div><strong>5 convites</strong><small>+250 moedas</small></div>
+        <div class="milestone" id="tier10"><div class="milestone-icon">🎁</div><strong>10 convites</strong><small>+500 moedas</small></div>
+        <div class="milestone" id="tier20"><div class="milestone-icon">🎁</div><strong>20 convites</strong><small>+1.000 moedas</small></div>
+      </div>
+      <div class="invite-foot"><span><strong id="inviteProgressText">0/20</strong> convites • +10 moedas por cadastro confirmado</span><span>Código: <span class="invite-code" id="referralCode">...</span></span></div>
+      <p class="member-note" style="font-size:11px;margin:13px 2px 0">Ao convidado retornar e resgatar o bônus diário, você recebe mais 5 moedas virtuais. Só contam novos cadastros com e-mail confirmado, vinculados ao seu convite.</p>
+      <p id="shareStatus" class="member-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="member-block" id="atividades" aria-labelledby="activityTitle">
+      <div class="block-title"><h2 id="activityTitle"><span aria-hidden="true">🕒</span> Atividades recentes</h2>
+        <button id="showAllActivity" type="button">Ver todas ›</button></div>
+      <div class="activity-list" id="activityList"><p class="empty-state">Carregando atividades...</p></div>
+    </section>
+
+    <div class="account-layout" id="perfil">
+      <section class="member-block member-profile" aria-labelledby="profileTitle">
+        <div class="block-title"><h2 id="profileTitle"><span aria-hidden="true">👤</span> Meu perfil</h2></div>
+        <p class="member-note">Atualize seu nome como quiser aparecer na comunidade.</p>
+        <small><strong>E-mail:</strong> <span id="userEmail">Carregando...</span></small>
+        <form id="profileForm">
+          <label for="displayName">Como deseja ser chamado?</label>
+          <input id="displayName" type="text" placeholder="Seu nome" maxlength="70" autocomplete="name">
+          <button type="submit" class="gold-cta" id="saveProfile">Salvar meu nome</button>
+        </form>
+        <p id="profileStatus" class="member-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="member-block" aria-labelledby="aboutRewards">
+        <div class="block-title"><h2 id="aboutRewards"><span aria-hidden="true">💡</span> Como funciona</h2></div>
+        <p class="member-note"><strong>Moedas:</strong> pontos gratuitos que não podem ser comprados, vendidos ou convertidos em dinheiro.</p>
+        <p class="member-note"><strong>Giros:</strong> ficam acumulados na sua conta, mas a roleta ainda está em demonstração.</p>
+        <p class="member-note"><strong>Benefícios:</strong> serão ativados quando os parceiros oferecerem recompensas reais e regras claras.</p>
+        <button id="signOut" class="member-return" type="button" style="color:#0d5797;background:#e9f8ff;border:1px solid #8bd0ee">Sair da conta</button>
+      </section>
+    </div>
+
+    <section class="member-block member-sponsor" id="apoiadores" aria-labelledby="sponsorTitle">
+      <div class="block-title"><h2 id="sponsorTitle"><span aria-hidden="true">🤝</span> Nossos apoiadores</h2><a href="./#apoiadores">Ver vitrine ›</a></div>
+      <div id="sponsorsGrid" class="sponsor-grid"><p class="empty-state">Carregando apoiadores...</p></div>
+    </section>
+    <footer class="member-footer">© GiraPrêmios Solidária • Sua comunidade de benefícios • V1.7</footer>
+  </main>
+</div>
+
+<nav class="member-nav" aria-label="Navegação do participante" id="memberNav" hidden>
+  <a href="#inicio" class="current"><span class="nav-icon">🏠</span>Início</a>
+  <a href="./roleta.html"><span class="nav-icon">☸️</span>Roleta</a>
+  <a href="#beneficios"><span class="nav-icon">🎁</span>Benefícios</a>
+  <a href="#perfil"><span class="nav-icon">👤</span>Perfil</a>
+</nav>
+
+<dialog class="member-dialog" id="informationDialog" aria-labelledby="modalTitle">
+  <h2 id="modalTitle">Seus benefícios</h2>
+  <p id="modalText">Novidades chegando.</p>
+  <button type="button" class="dialog-close" id="closeDialog">Entendi</button>
+</dialog>
+<script type="module" src="./usuario-v17.js?v=17"></script>
+</body></html>
