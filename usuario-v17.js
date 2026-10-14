@@ -1,6 +1,8 @@
 import {db,$,identity,loadSponsors} from './app-config.js?v=17';
+import {setupNotificationPopover} from './notifications-popover-v20.js?v=20';
 
 let signedIn=null;
+let notificationUI=null;
 let wallet=null;
 let allActivities=[];
 let showingAll=false;
@@ -62,10 +64,7 @@ async function loadActivities(){
  const {data,error}=await db.from('member_activities').select('id,kind,title,description,coins_delta,created_at').eq('user_id',signedIn.id).order('created_at',{ascending:false}).limit(50);
  if(error){const root=$('activityList');root.textContent='Não foi possível carregar o histórico.';return}
  allActivities=data||[];renderActivities();
- const viewed=localStorage.getItem('gp_seen_'+signedIn.id);
- const newest=allActivities[0]?.created_at;
- if(newest&&(!viewed||new Date(newest)>new Date(viewed)))document.querySelector('.member-alert-dot').style.display='block';
- else document.querySelector('.member-alert-dot').style.display='none';
+ /* O indicador de não lidas é controlado exclusivamente pela caixinha. */
 }
 function referralCodeFromUrl(){
  const query=new URLSearchParams(location.search).get('ref');
@@ -90,6 +89,7 @@ async function checkin(){
   drawWallet(data);
   notify('rewardStatus',data.claimed?'🎉 Bônus recebido: +50 moedas virtuais e +1 giro!':'Você já recebeu o bônus de hoje. Volte amanhã.');
   await loadActivities();
+  notificationUI?.refresh();
  }catch(error){button.disabled=false;button.textContent='Tentar novamente';notify('rewardStatus','Não foi possível receber o bônus: '+(error.message||'tente novamente'),true)}
 }
 async function shareInvite(){
@@ -132,6 +132,7 @@ async function start(){
  if(response.error){$('sessionStatus').textContent='Não foi possível validar seu acesso. Atualize a página.';$('noAccess').hidden=false;return}
  if(!response.user){location.replace('./#entrar');return}
  signedIn=response.user;
+ notificationUI=setupNotificationPopover({db,user:signedIn,trigger:$('notifications')});
  $('sessionStatus').hidden=true;
  $('memberPanel').hidden=false;
  $('memberNav').hidden=false;
@@ -153,7 +154,7 @@ $('profileForm').addEventListener('submit',saveProfile);
 $('showAllActivity').addEventListener('click',()=>{location.href='./atividades.html'});
 $('allBenefits').addEventListener('click',()=>{location.href='./beneficios.html'});
 for(const el of document.querySelectorAll('[data-benefit]'))el.addEventListener('click',()=>{location.href='./beneficios.html'});
-$('notifications').addEventListener('click',()=>{location.href='./notificacoes.html'});
+// O botão do sino é configurado pelo componente de notificações.
 $('closeDialog').addEventListener('click',()=>$('informationDialog').close());
 $('signOut').addEventListener('click',async()=>{await db.auth.signOut();location.replace('./#entrar')});
 for(const tab of document.querySelectorAll('.member-nav a[href^="#"]'))tab.addEventListener('click',()=>{for(const item of document.querySelectorAll('.member-nav a'))item.classList.toggle('current',item===tab)});
