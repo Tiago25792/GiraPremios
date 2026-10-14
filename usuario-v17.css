@@ -1,0 +1,174 @@
+
+/* GiraPrêmios • Área do participante v1.7
+   Referência visual aprovada: céu azul, ouro, água, mascote marinheiro.
+   Todos os valores e textos são elementos HTML acessíveis, nunca texto pintado numa captura.
+*/
+:root {--sea:#036aec;--azure:#008cf6;--cyan:#48d9ff;--deep:#08347b;--ink:#0b3377;--muted:#56749c;--gold:#ffcb44;--panel:#f5fdff;--stroke:#b9eaff;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.member-ocean{margin:0;min-height:100vh;font:400 16px/1.45 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 2%,#59dcff 0,transparent 31%),linear-gradient(180deg,#055cda,#048fff 25%,#29bff8 62%,#94eafb 100%);-webkit-font-smoothing:antialiased}
+body.member-ocean button,body.member-ocean input{font:inherit}
+body.member-ocean a{text-decoration:none;color:inherit}
+body.member-ocean button{cursor:pointer}
+body.member-ocean button:disabled{opacity:.55;cursor:not-allowed}
+body.member-ocean :is(a,button,input):focus-visible{outline:3px solid #ffeb84;outline-offset:3px}
+body.member-ocean [hidden]{display:none!important}
+.member-container{width:min(100%,1080px);margin:auto;padding:0 14px 28px}
+.member-top{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:12px 3px 13px;border-bottom:1px solid #bdefff80}
+.member-logo{display:flex;align-items:center;gap:9px;white-space:nowrap;font-size:clamp(19px,4.3vw,31px);font-weight:950;letter-spacing:-1px;text-shadow:0 2px #1652ae,0 4px 6px #034c9990}
+.member-logo b{color:#ffe478;text-shadow:0 2px #ae6312,0 4px 5px #043a8a}
+.member-logo img{width:clamp(38px,8vw,54px);height:clamp(38px,8vw,54px);object-fit:contain;filter:drop-shadow(0 3px 2px #00469d66)}
+.member-top-actions{display:flex;align-items:center;gap:8px}
+.member-circle{position:relative;border:1.5px solid #a6e8ffb0;background:linear-gradient(160deg,#3da7f888,#0b64dccc);border-radius:18px;display:grid;place-items:center;min-width:43px;height:43px;color:#fff;font-size:23px;box-shadow:inset 0 1px #ffffff50}
+.member-alert-dot{position:absolute;right:-2px;top:0;background:#f94c68;border:2px solid #c2ebff;width:11px;height:11px;border-radius:50%;display:none}
+.member-return{font-size:12px;padding:9px 11px;border:1px solid #9fe4fa;border-radius:13px;color:#fff;background:#075ec3ab}
+.member-hero{margin-top:13px;border:3px solid #baefff;border-radius:27px 27px 0 0;position:relative;overflow:hidden;min-height:160px;background:radial-gradient(circle at 65% -20%,#93f1ff 0,transparent 52%),linear-gradient(135deg,#0270ec 0%,#00a5fa 65%,#27c7f3);box-shadow:inset 0 3px #e8ffff70,0 8px 28px #03589d64}
+.member-hero:before{content:"";position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(0deg,#0077df91,#6ee8ff5a);clip-path:polygon(0 40%,8% 30%,15% 44%,27% 29%,40% 43%,54% 30%,70% 47%,82% 35%,100% 48%,100% 100%,0 100%);opacity:.75}
+.hero-welcome{position:relative;z-index:2;padding:23px 22px 34px;max-width:69%}
+.hero-welcome h1{color:#fff;font-size:clamp(28px,5.2vw,53px);letter-spacing:-1.4px;line-height:1.13;font-weight:950;margin:0 0 12px;text-shadow:0 3px 2px #0556b8,0 6px 12px #05509f80;overflow-wrap:anywhere}
+.hero-welcome h1 strong{color:#ffe07a;text-shadow:0 3px 1px #a96813,0 5px 8px #3d70ae77}
+.hero-welcome p{font-size:clamp(12px,2.5vw,19px);color:#fff;margin:0;font-weight:720;text-shadow:0 2px 4px #0067b089}
+.hero-decoration{position:absolute;z-index:1;right:0;top:0;bottom:0;width:48%;pointer-events:none}
+.hero-sailor{position:absolute;right:8%;bottom:-32px;width:clamp(116px,23vw,220px);height:190px;object-fit:contain;filter:drop-shadow(0 7px 3px #0461ac60)}
+.hero-cloud{position:absolute;color:#f1feff99;font-size:clamp(35px,7vw,72px);right:5%;top:-16px}
+.hero-island{position:absolute;font-size:clamp(22px,5vw,47px);right:0;bottom:12px;filter:drop-shadow(0 4px 3px #0460af55)}
+.hero-sparkle{position:absolute;left:10%;top:20px;font-size:25px}
+.member-wallet-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:-3px 5px 12px;position:relative;z-index:3}
+.wallet-card{display:flex;align-items:center;gap:10px;min-width:0;border:2px solid #c4f6ff;border-radius:22px;padding:16px 14px 13px;background:linear-gradient(145deg,#fff,#e9faff);color:#0a3d87;box-shadow:0 7px 20px #085ea348,inset 0 2px #fff}
+.wallet-icon{flex:0 0 auto;display:grid;place-items:center;border-radius:17px;background:#e7f7ff;width:54px;height:58px;font-size:36px;filter:drop-shadow(0 2px 2px #226aa43b)}
+.wallet-copy{min-width:0;flex:1}
+.wallet-title{color:#0d428b;display:block;font-weight:900;line-height:1.25;font-size:clamp(12px,2.3vw,18px)}
+.wallet-number{display:block;color:#062c77;font-size:clamp(24px,4vw,36px);font-weight:950;line-height:1.2;letter-spacing:-.8px;margin:2px 0}
+.wallet-note{font-size:11px;color:#5375a0;line-height:1.35;display:block}
+.wallet-arrow{color:#0770db;align-self:start;font-size:20px;font-weight:bold}
+.daily-reward{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;margin:12px 6px 16px;border:2px solid #c9eeff;border-radius:17px;background:#effbffee;box-shadow:0 5px 14px #0868a02b;color:#094182}
+.daily-reward strong{font-size:15px;display:block;font-weight:900}
+.daily-reward small{display:block;font-size:12px;line-height:1.3;color:#526d91}
+.daily-reward button,.gold-cta{border:2px solid #fff2ba;border-radius:17px;padding:12px 15px;background:linear-gradient(180deg,#fff5b2 0%,#ffd255 52%,#ff9a2b 100%);color:#68330a;box-shadow:inset 0 2px #fffdf6,0 4px 0 #b6610f,0 7px 15px #78491961;font-weight:950}
+.game-showcase{position:relative;overflow:hidden;min-height:278px;margin:0 2px 15px;padding:19px 20px 29px;border:3px solid #b5f5ff;border-radius:26px;background:radial-gradient(ellipse at 50% 40%,#1bc3fff0,transparent 65%),linear-gradient(150deg,#0876e5 0%,#00b0fc 72%,#5de8ff);box-shadow:inset 0 4px #ffffff85,0 10px 30px #0766aa5c}
+.game-showcase:before{content:"";position:absolute;inset:auto 0 0;height:15%;background:linear-gradient(#efa94c,#af6938);border-top:5px solid #ffe09b}
+.game-showcase .scene-palm{position:absolute;top:25px;left:10px;font-size:44px;opacity:.9}
+.game-showcase .scene-far{position:absolute;right:16px;top:13px;color:#fff7e0;font-size:22px}
+.game-mascot{position:absolute;z-index:2;bottom:0;left:3%;width:clamp(135px,22vw,250px);height:200px;object-fit:contain;filter:drop-shadow(0 7px 3px #0561b986);pointer-events:none}
+.game-wheel{position:absolute;z-index:1;right:1%;bottom:0;width:clamp(170px,33vw,360px);height:clamp(170px,33vw,360px);object-fit:contain;filter:drop-shadow(0 9px 5px #004d936b);pointer-events:none}
+.game-message{position:relative;z-index:3;text-align:center;max-width:72%;margin:0 auto}
+.game-message h2{font-size:clamp(26px,4.9vw,50px);line-height:1.12;letter-spacing:-1.5px;font-weight:1000;text-shadow:0 3px 1px #03509c,0 5px 6px #00489d95;margin:5px 0 5px;color:#fff}
+.game-message h2 span{color:#ffe27b;text-shadow:0 3px 1px #986018,0 5px 5px #0457a6}
+.game-message p{font-size:clamp(13px,2.2vw,21px);line-height:1.1;font-weight:850;margin:0 0 20px;color:#fff}
+.game-message .gold-cta{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(180px,37vw,330px);font-size:clamp(17px,2.6vw,24px);text-decoration:none;min-height:57px}
+.game-demo-tag{position:relative;z-index:3;display:block;text-align:center;font-size:11px;font-weight:800;color:#e6fbff;margin-top:15px;text-shadow:0 2px 5px #054887}
+.member-block{margin:13px 2px;border:2px solid #e4faff;background:linear-gradient(150deg,#fff,#e6faff);border-radius:28px;box-shadow:0 9px 24px #006ca93b;padding:18px 16px 20px;color:#0b377e}
+.block-title{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:15px}
+.block-title h2{color:#08377e;font-weight:950;font-size:clamp(21px,3.4vw,29px);letter-spacing:-1px;margin:0;line-height:1.2;display:flex;align-items:center;gap:10px}
+.block-title h2 span{font-size:30px}
+.block-title a,.block-title button{border:0;background:transparent;font-weight:800;color:#077ae6;font-size:13px;padding:5px;white-space:nowrap}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.benefit-item{display:flex;align-items:center;gap:12px;text-align:left;position:relative;min-width:0;border:1px solid #c9ebfc;border-radius:21px;background:linear-gradient(#fff,#f2fcff);padding:12px 10px;box-shadow:0 5px 13px #027bc51e;min-height:117px;color:#0c3d86}
+.benefit-icon{width:66px;min-width:66px;height:69px;display:grid;place-items:center;background:linear-gradient(#fff8dc,#ffeef8);border-radius:17px;font-size:39px}
+.benefit-name{font-size:clamp(12px,1.8vw,17px);line-height:1.22;font-weight:900;color:#0b3e88;margin-bottom:5px}
+.benefit-description{display:block;font-size:12px;line-height:1.22;color:#5277a1}
+.benefit-future{font-size:9px;font-weight:800;color:#95600a;margin-top:5px;display:block}
+.benefit-chevron{font-size:20px;color:#0179dc;align-self:start}
+.invite-section{position:relative}
+.invite-header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.invite-header h2{font-size:clamp(22px,3.6vw,31px);font-weight:950;letter-spacing:-1px;margin:0;color:#09377c}
+.invite-header p{margin:0;color:#57769c;font-size:14px}
+.invite-icon{font-size:39px;margin-right:5px}
+.invite-share{padding:12px 15px;font-size:13px}
+.progress-shell{margin:19px 3px 9px;background:#b9dff4;height:18px;position:relative;border-radius:99px;box-shadow:inset 0 2px 5px #176da64a}
+.progress-fill{height:100%;width:0;background:linear-gradient(#6be66f,#0fb476);border-radius:99px;transition:width .3s ease}
+.milestones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px;text-align:center}
+.milestone{position:relative;min-width:0;color:#165f88}
+.milestone-icon{font-size:30px;line-height:1.2}
+.milestone strong{font-size:12px;display:block;line-height:1.4}
+.milestone small{display:block;font-size:11px;color:#1c9364;font-weight:800}
+.milestone:not(.done) small{color:#7192a5}
+.invite-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:#3a6b9f}
+.invite-foot strong{color:#0a418c}
+.invite-code{font-family:ui-monospace,monospace;font-weight:900;color:#064ca2}
+.activity-list{display:grid;gap:3px}
+.activity-row{display:flex;align-items:center;gap:13px;min-height:71px;border:1px solid #daedfb;border-radius:19px;padding:10px 13px;background:linear-gradient(105deg,#fff,#f8fcff)}
+.activity-symbol{width:55px;height:53px;display:grid;place-items:center;font-size:32px;background:#e9f8ff;border-radius:16px;flex-shrink:0}
+.activity-body{min-width:0;flex:1}
+.activity-body strong{color:#073b83;font-size:14px;line-height:1.25;display:block}
+.activity-body span{font-size:12px;color:#5679a6}
+.activity-date{font-size:11px;color:#607fa2;white-space:nowrap}
+.empty-state{margin:5px 0;font-size:13px;color:#597aa1;text-align:center;padding:16px;background:#fff;border-radius:17px}
+.account-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.member-profile label{font-weight:800;font-size:12px;display:block;color:#234d84;margin:8px 0 5px}
+.member-profile input{width:100%;padding:13px;border:1px solid #9fcfee;border-radius:12px;background:#fff;color:#123a80}
+.member-profile .gold-cta{margin-top:15px}
+.member-profile small{display:block;color:#52759c;overflow-wrap:anywhere}
+.member-note{color:#506e91;font-size:13px;margin:5px 0 8px;line-height:1.5}
+.member-note strong{color:#0d4987}
+.member-status{margin:8px 0;color:#065d70;font-size:12px;font-weight:750}
+.member-status.error{color:#bd283a}
+.member-sponsor{margin:12px 0}
+.member-sponsor .sponsor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.member-footer{text-align:center;color:#176ca9;font-size:12px;padding:15px 0 20px}
+.member-nav{display:flex;align-items:stretch;justify-content:space-around;gap:4px;margin:14px 2px 0;position:sticky;z-index:10;bottom:max(8px,env(safe-area-inset-bottom));padding:9px;border:2px solid #d7f9ff;background:#f5fcfff4;border-radius:28px;box-shadow:0 8px 25px #0352984f;backdrop-filter:blur(10px)}
+.member-nav a,.member-nav button{display:flex;flex:1;min-width:0;flex-direction:column;align-items:center;gap:0;justify-content:center;padding:8px 2px;border:0;border-radius:20px;background:none;color:#5676a2!important;text-align:center;font-size:11px;font-weight:800}
+.member-nav .nav-icon{font-size:26px;line-height:1.23}
+.member-nav .current{color:#fff!important;background:linear-gradient(145deg,#12a0ff,#0061ec);box-shadow:0 4px 12px #086de659}
+.member-dialog{background:linear-gradient(140deg,#fff,#e3f9ff);color:#0a377c;border:2px solid #8bdaff;border-radius:22px;max-width:min(420px,calc(100vw - 28px));width:100%;padding:22px;box-shadow:0 20px 70px #002f79a6}
+.member-dialog::backdrop{background:#00235fae;backdrop-filter:blur(5px)}
+.member-dialog h2{font-size:22px;margin:0 0 12px}
+.member-dialog p{font-size:13px;line-height:1.5;color:#416ca0}
+.member-dialog .dialog-close{display:block;margin:17px 0 0 auto;padding:11px 18px;border:1px solid #64afe8;background:#e6f8ff;border-radius:11px;color:#0656a9;font-weight:800}
+@media(max-width:750px){
+ .member-container{padding:0 11px 20px}
+ .member-hero{min-height:157px}
+ .member-wallet-cards{gap:7px}
+ .wallet-card{padding:12px 7px;gap:5px;border-radius:16px;flex-direction:row}
+ .wallet-icon{width:39px;height:46px;font-size:26px;border-radius:12px}
+ .wallet-note{font-size:10px}
+ .wallet-arrow{display:none}
+ .wallet-number{font-size:clamp(23px,5vw,30px)}
+ .benefit-item{gap:7px;padding:8px;flex-direction:column;align-items:start;min-height:147px}
+ .benefit-icon{width:48px;min-width:48px;height:48px;font-size:30px}
+ .benefit-chevron{position:absolute;right:8px;top:10px}
+ .game-message{max-width:72%}
+ .game-mascot{left:-12px;width:37%;height:180px}
+ .game-wheel{right:-28px;width:46%;height:210px}
+}
+@media(max-width:490px){
+ .member-top .member-return{display:none}
+ .hero-welcome{max-width:72%;padding:22px 14px 25px}
+ .hero-welcome h1{font-size:clamp(27px,7vw,35px)}
+ .hero-welcome p{font-size:12px}
+ .hero-sailor{right:-4%;bottom:-29px;width:150px;height:170px}
+ .wallet-card{padding:10px 6px;align-items:center;flex-direction:column;text-align:center}
+ .wallet-icon{width:37px;height:37px;font-size:25px}
+ .wallet-title{font-size:12px}
+ .wallet-number{font-size:clamp(23px,7vw,29px)}
+ .wallet-note{font-size:10px;line-height:1.2}
+ .daily-reward{padding:12px;flex-wrap:wrap}
+ .daily-reward button{width:100%}
+ .game-showcase{min-height:286px;padding:18px 8px 30px}
+ .game-message{max-width:95%}
+ .game-message h2{font-size:clamp(26px,7.4vw,36px)}
+ .game-message p{font-size:15px;margin-bottom:15px}
+ .game-message .gold-cta{margin-top:6px;font-size:18px;min-width:180px;min-height:53px}
+ .game-mascot{width:39%;bottom:-8px;left:-13px;height:173px}
+ .game-wheel{width:55%;right:-40px;bottom:0;height:200px}
+ .game-demo-tag{margin-top:45px}
+ .member-block{padding:14px 11px;border-radius:23px}
+ .block-title h2{font-size:21px}
+ .block-title h2 span{font-size:24px}
+ .benefit-item{min-height:150px}
+ .benefit-description{font-size:10px}
+ .benefit-name{font-size:12px}
+ .invite-header{align-items:start}
+ .invite-share{font-size:12px;padding:10px 12px}
+ .invite-icon{font-size:27px}
+ .milestone strong{font-size:11px}
+ .milestone small{font-size:10px}
+ .activity-row{gap:9px;padding:9px 9px}
+ .activity-symbol{width:42px;height:44px;font-size:24px}
+ .activity-body strong{font-size:12px}
+ .activity-body span{font-size:11px}
+ .activity-date{font-size:9px}
+ .account-layout{grid-template-columns:minmax(0,1fr)}
+ .member-sponsor .sponsor-grid[data-sponsor-kind=real]{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){.progress-fill{transition:none}html{scroll-behavior:auto}}
