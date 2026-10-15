@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0875e9"><meta name="description" content="Recupere seu  acesso!  — GiraPrêmios Solidária">
+<link rel="icon" type="image/svg+xml" href="./mascote-hd.svg?v=14"><link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./auth-v22.css?v=22"><title>Recuperar acesso | GiraPrêmios</title></head>
+<body data-auth-page="reset"><div class="auth-shell">
+<header class="auth-header"><a class="auth-brand" href="./" aria-label="Página inicial GiraPrêmios"><img src="./roleta-marinha.svg" alt="" width="54" height="54"><span>Gira<strong>Prêmios</strong></span></a><a class="auth-back" href="./" aria-label="Voltar à página inicial">←</a></header>
+<section class="auth-scene" aria-label="Comunidade de benefícios"><div class="auth-scene-copy"><h1>Recupere<br>seu <strong>acesso!</strong></h1><p>Volte à sua conta em poucos passos.</p></div><span class="scene-birds" aria-hidden="true">🕊️</span><span class="scene-lighthouse" aria-hidden="true">🏝️</span><span class="scene-coins" aria-hidden="true">🪙 ✨</span><span class="scene-spark" aria-hidden="true">✨</span><img class="auth-mascot" src="./mascote-hd.svg?v=14" alt="Passarinho marinheiro GiraPrêmios" width="270" height="307"></section>
+<main class="auth-card"><div class="auth-card-title"><span class="auth-icon" aria-hidden="true">🔐</span><div><h2 id="resetHeading">Recuperar senha</h2><p class="subtitle">Volte a entrar de forma simples e segura.</p></div></div>
+<form class="auth-form" id="resetRequestForm">
+<div class="auth-field"><label for="email">Seu e-mail</label><div class="auth-input-wrap"><span class="lead" aria-hidden="true">✉️</span><input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required ></div></div>
+<p class="auth-hint">Enviaremos um link de recuperação ao endereço cadastrado.</p>
+<div class="turnstile-wrap" id="captchaRegion" hidden><div id="turnstileSlot"></div></div>
+<button type="submit" class="auth-submit" id="resetSubmit">Enviar instruções para meu e-mail ›</button></form>
+<form class="auth-form" id="newPasswordForm" hidden>
+<div class="auth-field"><label for="password">Sua nova senha</label><div class="auth-input-wrap"><span class="lead" aria-hidden="true">🔒</span><input id="password" type="password" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8" required><button class="pass-toggle" data-reveal="password" type="button" aria-label="Mostrar senha">👁</button></div></div>
+<button type="submit" id="savePassword" class="auth-submit">Salvar nova senha ›</button></form>
+<a href="./usuario.html" id="afterRecovery" class="auth-alt" hidden style="margin-top:16px">Abrir minha área ›</a>
+<p class="auth-feedback" id="feedback" role="status" aria-live="polite" hidden></p>
+<div class="auth-actions"><a href="./entrar.html" class="text-link">← Voltar para login</a></div></main>
+<footer class="auth-footer"><a href="./">GiraPrêmios Solidária</a> • Participação gratuita</footer></div>
+<script type="module" src="./auth-v22.js?v=22"></script></body></html>
