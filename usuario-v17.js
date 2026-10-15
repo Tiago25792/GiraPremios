@@ -40,7 +40,7 @@ function viewDate(date){
  try{return new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(date))}
  catch{return ''}
 }
-function activityEmoji(kind){return {checkin:'🪙',spin:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'}[kind]||'🔔'}
+function activityEmoji(kind){return {checkin:'🪙',spin:'☸️',spin_used:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'}[kind]||'🔔'}
 function renderActivities(){
  const root=$('activityList');root.replaceChildren();
  const list=showingAll?allActivities:allActivities.slice(0,4);
