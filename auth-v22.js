@@ -179,7 +179,8 @@ function setGoogle(){
  if(!authOptions.googleEnabled){
   btn.disabled=true;
   btn.setAttribute('title','Google ainda não foi ativado no Supabase');
-  btn.innerHTML='<span class="google-g" aria-hidden="true">G</span> Google — em configuração';
+  btn.classList.add('is-pending');
+  btn.innerHTML='<span class="google-g" aria-hidden="true">G</span> Continuar com Google <small class="google-soon">Em breve</small>';
  }else btn.addEventListener('click',googleSignIn);
 }
 async function init(){
@@ -201,15 +202,17 @@ async function init(){
   return;
  }
  if(page==='signup'){$('signupForm')?.addEventListener('submit',signup)}
- if(page==='login'){$('loginForm')?.addEventListener('submit',signin)}
- await ensureCaptcha();
  if(page==='login'){
+  // Conta com sessão válida não precisa ver o formulário novamente.
+  // Primeiro confira o papel no Supabase; não redirecione com base apenas
+  // em armazenamento local.
   const info=await identity();
-  if(info.user&&info.role){
-   status('Você já está conectado. Use o botão para abrir sua área.','success');
-   const btn=$('goToAccount');
-   if(btn){btn.hidden=false;btn.addEventListener('click',()=>navigateToRole(info.role))}
+  if(info.user&&info.role&&!info.error){
+   navigateToRole(info.role);
+   return;
   }
+  $('loginForm')?.addEventListener('submit',signin);
  }
+ await ensureCaptcha();
 }
 init().catch(err=>status('Não foi possível inicializar esta página: '+(err.message||'erro'),'error'));
