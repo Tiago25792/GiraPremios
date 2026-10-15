@@ -1,16 +1,18 @@
 # GiraPrêmios — Dossiê inicial para análise jurídica e possível protocolo no SCPC
 **Preparado:** 15/10/2026  
-**Situação:** rascunho de trabalho, sujeito à concordância escrita da empresa e revisão jurídica. **Não é certificado, parecer legal, protocolo ou autorização.**  
+**Situação:** rascunho para análise jurídica e instrução do pedido. O usuário declarou em 15/10/2026 ser sócio-proprietário da empresa e ter assumido formalmente a responsabilidade pela promoção. A declaração **ainda precisa ser comprovada pelos documentos societários e representação legal**. **Não é certificado, parecer legal, protocolo ou autorização.**  
 **Aplicativo:** https://girapremios.vercel.app/  
 
-## 1. Empresa candidata, ainda NÃO confirmada como promotora
+## 1. Empresa indicada pelo sócio-proprietário como promotora — confirmação documental pendente
 - CNPJ informado pelo responsável pelo projeto: **09.371.421/0001-01**
 - Nome empresarial apontado por cadastros empresariais públicos: **Valtair da Silva & Cia LTDA**
 - Nome fantasia encontrado: **Descont' Saúde**
 - Município/UF reportado: Pedro Osório/RS
 - Situação reportada pelos diretórios: ativa.
-- **Verificação pendente:** comprovante atualizado da Receita Federal, atividade e situação cadastral, regularidade fiscal, poderes do representante, concordância expressa em assumir a responsabilidade pela operação.
-- **Importante:** fornecimento de brindes por um apoiador e existência de CNPJ não tornam essa empresa automaticamente promotora ou aderente.
+- **Declaração recebida do responsável pelo projeto (15/10/2026):** é sócio-proprietário da Descont' Saúde e afirma ter assumido formalmente a promoção pelo CNPJ indicado.
+- **Verificação documental pendente:** comprovante atualizado da Receita Federal, CNAE/atividade e situação cadastral, contrato social e alterações, poderes do signatário, certidões exigidas, declaração/ato de representação ou autorização societária se pertinente.
+- **Registro da declaração não equivale à verificação oficial da empresa nem ao deferimento da promoção.**
+- **Importante:** a empresa foi indicada como promotora pelo sócio, e não apenas como doadora de brindes. Verificar a elegibilidade jurídica e documental da empresa, distinguindo outros apoiadores que apenas fornecem bens de eventuais empresas formalmente aderentes.
 
 Bases secundárias consultadas (não substituem a Receita):
 https://cnpj.biz/09371421000101
@@ -28,7 +30,7 @@ O software já tem campos para: apoiador, foto, estoque, início/fim de disponib
 **Questão jurídica central:** o benefício universal não elimina o caráter de seleção por sorte quanto aos brindes limitados. A regra publicada pela SPA para descontos universais fala em condições objetivas, SEM sorte, aleatoriedade, competição nem limitação de estoque promocional. A modalidade assemelhada a vale-brinde também veda contemplação randômica. Não chamar mecanicamente o arranjo de 'benefício garantido isento'.
 
 ## 3. Análise solicitada ao advogado
-A) Determinar a finalidade publicitária e elegibilidade da empresa indicada, inclusive cenário em que é apenas fornecedora de produtos versus promotora/aderente formalmente responsável.
+A) Confirmar a elegibilidade comercial e representação legal da Descont' Saúde como promotora indicada; verificar se há empresas aderentes ou se os demais apoiadores atuarão exclusivamente como fornecedores de brindes.
 B) Validar modalidade prevista pela Lei 5.768/1971, Decreto 70.951/1972 e Portaria SEAE/ME 7.638/2022 para a mecânica que se pretende oferecer.
 C) Se a modalidade planejada vedar algoritmos aleatórios na escolha de contemplados, orientar mecânica alternativa permitida para apuração, considerando inclusive requisitos da Loteria Federal quando aplicáveis.
 D) Avaliar se moedas virtuais acumuláveis e a futura troca por bens alteram a classificação de partes da campanha.
@@ -36,7 +38,7 @@ E) Conferir regras fiscais, tributárias, privacidade (LGPD), comprovação de p
 F) Preparar, se cabível, regulamento/plano de operação e protocolo SCPC com número do certificado antes do início/divulgação da promoção que depender de autorização.
 
 ## 4. Informações a preencher com o apoiador
-- Representante com poderes e autorização para usar a empresa como promotora: [PENDENTE].
+- Responsável declara ser sócio-proprietário e ter assumido formalmente a promoção: [DECLARADO PELO USUÁRIO, DOCUMENTAÇÃO A CONFERIR].
 - Comprovante atualizado de inscrição e situação cadastral na Receita: [PENDENTE].
 - Certidões pertinentes e contrato social: [PENDENTE].
 - Relação definitiva de empresas aderentes, caso haja: [PENDENTE].
@@ -67,4 +69,4 @@ Fontes oficiais da SPA:
 - https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/promocao-comercial/promocao-comercial/promocoes-comerciais/qual-o-prazo-para-pedir-autorizacao
 - https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/promocao-comercial/scpc
 
-**Próxima decisão:** confirmar autorização formal da empresa titular do CNPJ e obter orientação sobre a modalidade/mecânica antes de ativar o módulo de prêmios reais.
+**Próxima decisão:** obter comprovação da representação legal e documentos da empresa, definir com o advogado se os outros apoiadores serão apenas fornecedores ou aderentes, detalhar estoque/valor de brindes e cronograma, concluir o plano de operação e protocolar pelo SCPC. A seleção aleatória de prêmios reais permanece bloqueada até autorização aplicável.
