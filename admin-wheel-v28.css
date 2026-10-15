@@ -1,0 +1,14 @@
+/* V2.8: administrative planning only — do not activate random prize distribution */
+.wheel-settings{margin-top:16px;padding:16px;border:2px solid #98d9ff;border-radius:20px;background:linear-gradient(155deg,#e8f9ff,#fff9e8);color:#103f79}
+.wheel-settings-heading{display:flex;gap:11px;align-items:center}
+.wheel-settings-heading>span{font-size:36px;flex:0 0 auto}
+.wheel-settings h3{color:#084580;font-size:19px;margin:0 0 4px;line-height:1.25}
+.wheel-settings-heading p{font-size:12px;color:#47749e;margin:0}
+.wheel-settings .field{font-size:12px;margin-top:12px}
+.wheel-settings input,.wheel-settings textarea{font-size:14px;background:#fff;border:1px solid #a4d5f2}
+.wheel-settings input:focus,.wheel-settings textarea:focus{outline:2px solid #ffdb68}
+.wheel-settings .helper-note{display:block;font-size:11px;color:#477ba5;line-height:1.5;margin:5px 0 0}
+.wheel-progress{margin:13px 0 9px;padding:12px;border:1px solid #aedbef;background:#e9f8ff;color:#0b5aa3;font-size:12px;font-weight:850;border-radius:12px}
+.wheel-settings .notice{margin:10px 0 0;color:#88520a;border:1px solid #f4d991;background:#fff3cd;font-size:12px}
+.wheel-settings .two{gap:12px}
+@media(max-width:620px){.wheel-settings{padding:13px 11px}.wheel-settings .two{grid-template-columns:1fr;gap:3px}.wheel-settings h3{font-size:17px}}
