@@ -2,7 +2,7 @@
   Observações: usa atividades reais do Supabase e a mesma chave de leitura
   já usada pelo histórico; não oferece notificações push do sistema. */
 const BR=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
-const EMOJIS={checkin:'🪙',spin:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'};
+const EMOJIS={checkin:'🪙',spin:'☸️',spin_used:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'};
 const countFormat=x=>new Intl.NumberFormat('pt-BR').format(x);
 const readKey=userId=>'gp_seen_'+userId;
 const storedGet=k=>{try{return localStorage.getItem(k)}catch{return null}};
