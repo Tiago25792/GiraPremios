@@ -3,7 +3,7 @@ import {db,identity} from './app-config.js?v=27';
 const $=id=>document.getElementById(id);
 const format=n=>new Intl.NumberFormat('pt-BR').format(Number(n)||0);
 const iconFor={spin:'☸️',coupon:'🎟️',gift:'🎁',digital:'💎'};
-let items=[],partnerNames=new Map(),partnerImages=new Map(),editing=null,currentUser=null;
+let items=[],partnerNames=new Map(),partnerImages=new Map(),partnerApproved=new Map(),editing=null,currentUser=null;
 function message(text,error=false){
  const target=$('saveMessage');target.textContent=text;target.className='state '+(error?'error':'success')
 }
@@ -38,6 +38,7 @@ function edit(row){
 }
 async function toggleStatus(row){
  const next=row.status==='preview'?'draft':'preview';
+ if(next==='preview'&&row.reward_type==='gift'&&(!row.partner_id||!partnerApproved.get(row.partner_id))){message('Brindes só podem ser divulgados com um apoiador aprovado.',true);return}
  if(next==='preview'&&!confirm('Divulgar '+row.title+' como “Em preparação”? Nenhum resgate será habilitado.'))return;
  const {error}=await db.from('reward_catalog').update({status:next,updated_at:new Date().toISOString()}).eq('id',row.id);
  if(error){message('Erro ao alterar situação: '+error.message,true);return}
@@ -72,9 +73,9 @@ async function loadPartners(){
  const {data,error}=await db.from('sponsors').select('id,name,approved,image_url').order('name',{ascending:true}).limit(300);
  if(error)throw error;
  const root=$('partner');root.replaceChildren(new Option('Sem parceiro definido',''));
- partnerNames=new Map();partnerImages=new Map();
+ partnerNames=new Map();partnerImages=new Map();partnerApproved=new Map();
  for(const sponsor of data||[]){
-  partnerNames.set(sponsor.id,sponsor.name);if(sponsor.image_url)partnerImages.set(sponsor.id,sponsor.image_url);
+  partnerNames.set(sponsor.id,sponsor.name);partnerApproved.set(sponsor.id,Boolean(sponsor.approved));if(sponsor.image_url)partnerImages.set(sponsor.id,sponsor.image_url);
   root.add(new Option(sponsor.name+(sponsor.approved?'':' (não publicado)'),sponsor.id));
  }
 }
@@ -106,6 +107,7 @@ async function save(event){
  const photo=$('itemPhoto').files[0];
  const wheelCandidate=$('wheelCandidate').checked;
  if(type==='gift'&&!partner){message('Selecione o apoiador responsável pelo brinde.',true);return}
+ if(type==='gift'&&$('rewardStatus').value==='preview'&&!partnerApproved.get(partner)){message('Para divulgar um brinde, o apoiador precisa estar aprovado. Você pode salvar como rascunho.',true);return}
  if(type==='gift'&&(stock===null||stock<1)){message('Informe a quantidade de itens do apoiador (no mínimo 1).',true);return}
  if(wheelCandidate&&type!=='gift'){message('A reserva para futura roleta é exclusiva de itens do tipo brinde.',true);return}
  if(photo&&(!['image/jpeg','image/png','image/webp'].includes(photo.type)||photo.size>5*1024*1024)){message('A foto deve ser JPG, PNG ou WebP com até 5 MB.',true);return}
