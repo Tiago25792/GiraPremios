@@ -73,7 +73,12 @@ async function remove(row){
 }
 function makeEntry(row){
  const card=document.createElement('article');card.className='catalog-entry';
- const icon=elem('span',iconFor[row.reward_type]||'🎁','reward-icon');
+ const icon=elem('span','','reward-icon');
+ if(row.image_url&&safeUrl(row.image_url)){
+  const img=document.createElement('img');img.src=row.image_url;img.loading='lazy';img.alt='Foto de '+row.title;
+  img.onerror=()=>{icon.replaceChildren();icon.textContent=iconFor[row.reward_type]||'🎁'};
+  icon.append(img);
+ }else icon.textContent=iconFor[row.reward_type]||'🎁';
  const body=document.createElement('div');body.className='reward-info';
  const title=elem('strong',row.title);
  const details=elem('p',(row.coins_cost?format(row.coins_cost)+' moedas':'Moedas a definir')+' • '+(row.stock===null?'estoque a definir':format(row.stock)+' unidades'));
