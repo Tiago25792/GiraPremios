@@ -17,26 +17,30 @@
 <section class="sponsor-feature" id="apoiadores"><div class="feature-top"><div><div class="tiny-label">🤝 Quem acredita na nossa comunidade</div><h2>Nossos apoiadores</h2><p>Conheça quem faz parte da GiraPrêmios.</p></div><span class="supporter-counter" id="sponsorCount">Carregando...</span></div><div class="sponsor-grid" id="sponsorGrid"><div class="empty">Carregando a vitrine de apoiadores...</div></div></section>
 </main><footer class="foot"><span>© GiraPrêmios Solidária • V1.3</span><span>Apoiadores e benefícios para nossa comunidade.</span></footer>
 </div>
-<dialog class="modal" id="loginDialog" aria-labelledby="dialogTitle"><div class="modal-head"><div><div class="tiny-label">🔐 ACESSO À CONTA</div><h2 id="dialogTitle">Bem-vindo de volta!</h2><p>Entre com seu e-mail para acessar sua área.</p></div><button id="closeDialog" class="close" type="button" aria-label="Fechar login">×</button></div>
-<div id="loginArea"><form id="loginForm"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required><label for="password">Senha</label><input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Sua senha" required><button id="submitLogin" class="authbtn" type="submit">Entrar na minha conta</button></form><div class="modal-actions"><button id="register" type="button">Criar conta</button><button id="forgot" type="button">Esqueci minha senha</button></div><p class="fine">O cadastro e a recuperação por e-mail dependem do serviço de envio configurado no Supabase.</p></div>
-<div id="recoveryArea" hidden><form id="recoveryForm"><label for="newPassword">Escolha uma nova senha</label><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required><button class="authbtn" type="submit">Salvar nova senha</button></form></div><div class="auth-feedback" role="status" aria-live="polite" id="authFeedback"></div></dialog>
+
 <script type="module">
-import {db,identity,navigateToRole,loadSponsors} from './app-config.js?v=16';
-const pendingRef=new URLSearchParams(location.search).get('ref');
-if(pendingRef&&/^[a-f0-9]{12}$/.test(pendingRef)){try{localStorage.setItem('gp_referral_pending',pendingRef)}catch{}}
-const $=id=>document.getElementById(id);const feedback=(text,kind='')=>{const e=$('authFeedback');e.textContent=text;e.className='auth-feedback '+kind};let account=null;let passwordRecovery=false;
-function openModal(){if(!$('loginDialog').open){$('loginDialog').showModal();}setTimeout(()=>$('email')?.focus(),0)}
-function pageFor(role){navigateToRole(role==='admin'?'admin':'user')}
-async function refreshAccount(){const info=await identity();if(info.error){feedback('Não foi possível verificar sua sessão. Tente novamente.','error');return}account=info.user?info:null;$('loginTop').textContent=account?'Minha área ↗':'Entrar ↗'}
-$('loginTop').addEventListener('click',()=>{if(account?.role){pageFor(account.role)}else openModal()});
-$('closeDialog').addEventListener('click',()=>$('loginDialog').close());
-$('loginForm').addEventListener('submit',async e=>{e.preventDefault();const btn=$('submitLogin');btn.disabled=true;feedback('Verificando seu acesso...');const {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});btn.disabled=false;if(error){feedback('Não foi possível entrar: '+error.message,'error');return}const info=await identity();if(info.error||!info.role){feedback('Sessão iniciada, mas não foi possível identificar a permissão. Tente novamente.','error');return}feedback('Login realizado. Abrindo seu painel...','good');pageFor(info.role)});
-$('register').addEventListener('click',async()=>{const email=$('email').value.trim(),password=$('password').value;if(!email||password.length<8){feedback('Informe e-mail e uma senha com pelo menos 8 caracteres.','error');return}const btn=$('register');btn.disabled=true;feedback('Criando cadastro...');const {data,error}=await db.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});btn.disabled=false;if(error){feedback('Não foi possível criar a conta: '+error.message,'error');return}if(data.session){const info=await identity();if(info.role)pageFor(info.role);else feedback('Cadastro criado, mas não foi possível abrir seu perfil.','error')}else feedback('Cadastro recebido! Confira o e-mail de confirmação para ativar sua conta.','good')});
-$('forgot').addEventListener('click',async()=>{const email=$('email').value.trim();if(!email){feedback('Informe seu e-mail no campo acima.','error');return}const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});feedback(error?'Erro ao solicitar recuperação: '+error.message:'Se o e-mail estiver cadastrado, enviaremos instruções para recuperar a senha.',error?'error':'good')});
-db.auth.onAuthStateChange((event)=>{if(event==='PASSWORD_RECOVERY'){passwordRecovery=true;$('loginArea').hidden=true;$('recoveryArea').hidden=false;$('dialogTitle').textContent='Recuperar acesso';openModal();feedback('Defina sua nova senha.')}});
-$('recoveryForm').addEventListener('submit',async e=>{e.preventDefault();const {error}=await db.auth.updateUser({password:$('newPassword').value});if(error){feedback('Não foi possível alterar a senha: '+error.message,'error');return}passwordRecovery=false;const info=await identity();if(info.role)pageFor(info.role);else feedback('Senha alterada. Agora você pode entrar.','good')});
-const list=await loadSponsors($('sponsorGrid'));$('sponsorCount').textContent=list.count?list.count+' apoiador(es)':'Espaços disponíveis';
-await refreshAccount();
-if(location.hash==='#entrar'&&!passwordRecovery)openModal();
-window.addEventListener('hashchange',()=>{if(location.hash==='#entrar'&&!passwordRecovery)openModal()});
+import {identity,navigateToRole,loadSponsors} from './app-config.js?v=22';
+const $=id=>document.getElementById(id);
+const ref=new URLSearchParams(location.search).get('ref');
+if(ref&&/^[a-f0-9]{12}$/.test(ref)){try{localStorage.setItem('gp_referral_pending',ref)}catch{}}
+const loginRoute=()=>{
+ const u=new URL('./entrar.html',location.href);
+ if(ref&&/^[a-f0-9]{12}$/.test(ref))u.searchParams.set('ref',ref);
+ return u.href;
+};
+let account=null;
+$('loginTop').addEventListener('click',()=>{if(account?.role)navigateToRole(account.role);else location.assign(loginRoute())});
+try{
+ const list=await loadSponsors($('sponsorGrid'));
+ $('sponsorCount').textContent=list.count?list.count+' apoiador(es)':'Espaços disponíveis';
+}catch(error){
+ $('sponsorCount').textContent='Em atualização';
+ $('sponsorGrid').textContent='Não foi possível carregar os apoiadores.';
+}
+try{
+ const info=await identity();
+ if(!info.error&&info.user&&info.role){account=info;$('loginTop').textContent='Minha área ↗'}
+}catch{}
+if(location.hash==='#entrar')location.replace(loginRoute());
+window.addEventListener('hashchange',()=>{if(location.hash==='#entrar')location.replace(loginRoute())});
 </script></body></html>
