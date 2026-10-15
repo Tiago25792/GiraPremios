@@ -143,7 +143,7 @@ async function save(event){
  const wheelNotes=$('wheelNotes').value.trim();
  if(startAt&&endAt&&new Date(startAt)>=new Date(endAt)){message('A data de encerramento deve ser posterior ao início.',true);return}
  if(!Number.isInteger(minSpins)||minSpins<0||minSpins>10000000){message('O mínimo de giros deve ficar entre 0 e 10 milhões.',true);return}
- if(!Number.isFinite(chance)||chance<0||chance>100||Math.round(chance*100)!==chance*100){message('Use uma chance planejada entre 0% e 100%, com até duas casas decimais.',true);return}
+ if(!Number.isFinite(chance)||chance<0||chance>100||Math.abs(Math.round(chance*100)-chance*100)>0.000001){message('Use uma chance planejada entre 0% e 100%, com até duas casas decimais.',true);return}
  if(dailyLimit!==null&&(!Number.isInteger(dailyLimit)||dailyLimit<1||dailyLimit>1000000)){message('O limite diário deve ser um número positivo.',true);return}
  if(!Number.isInteger(userLimit)||userLimit<1||userLimit>1000){message('O limite por usuário deve ficar entre 1 e 1000.',true);return}
  if(wheelNotes.length>1200){message('As observações podem ter até 1.200 caracteres.',true);return}
