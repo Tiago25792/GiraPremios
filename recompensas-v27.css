@@ -1,0 +1,81 @@
+/* GiraPrêmios V2.7 — aprimoramento do design aprovado da Central de Benefícios */
+:root{--ink:#0a3773;--marine:#016be6;--gold:#ffcf56}
+body{background:radial-gradient(ellipse at 52% 0%,#87f1ff 0%,transparent 34%),linear-gradient(180deg,#0066d9 0%,#07a4eb 48%,#72e4ee 100%);color:#093777}
+.benefits-page .shell{max-width:980px}
+.benefits-page .site-head{min-height:78px}
+.benefits-page .logo{font-size:clamp(23px,5vw,34px)}
+.benefits-page .hero{
+  min-height:315px;position:relative;
+  background:linear-gradient(90deg,#0875e9bf 0%,#0d8cf555 40%,transparent 100%),url('./auth-coast-v24.svg') center 62%/cover no-repeat;
+  border:3px solid #d2f8ff;border-radius:28px;
+  box-shadow:inset 0 3px #efffff8a,0 10px 19px #014f9c55;
+}
+.benefits-page .hero .tag{font-size:11px;box-shadow:0 3px 10px #0260ae50}
+.benefits-page .hero h1{font-size:clamp(31px,6.6vw,52px);max-width:58%;line-height:1.07;margin-top:13px}
+.benefits-page .hero p{max-width:49%;font-size:15px}
+.benefits-page .hero .mascot{width:clamp(160px,37%,300px);max-height:330px;right:21%;bottom:-35px;z-index:2;filter:drop-shadow(0 8px 4px #064c9f90)}
+.benefits-page .hero .hero-wheel{position:absolute;z-index:3;right:-3%;bottom:-4%;width:min(38%,290px);filter:drop-shadow(0 8px 5px #0655a1ac)}
+.benefits-page .hero .spark{z-index:4;right:13%;top:10px}
+.benefits-page .hero .wave-badge{z-index:4;position:absolute;left:15px;bottom:13px;padding:7px 12px;background:#ffeda9ec;color:#7b4b0e;font-size:11px;font-weight:850;border:1px solid #fff6c2;border-radius:13px;box-shadow:0 3px 6px #08519a4d}
+.benefits-page .balance{border-radius:21px;border:2px solid #e5fbff;box-shadow:0 5px 12px #0256a233;padding:15px;gap:12px}
+.benefits-page .balance .bigcoin{font-size:39px}
+.benefits-page .balance strong{font-size:30px}
+.benefits-page .wallet-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:14px 0}
+.benefits-page .wallet-tile{background:linear-gradient(150deg,#fff,#e7f7ff);border:2px solid #d9f7ff;border-radius:18px;min-width:0;padding:15px;display:flex;gap:10px;align-items:center;box-shadow:0 5px 13px #075ca43a}
+.benefits-page .wallet-tile .emoji{font-size:37px;line-height:1;flex:0 0 auto}
+.benefits-page .wallet-tile small{display:block;font-weight:800;font-size:11px;color:#6b89a9}
+.benefits-page .wallet-tile strong{display:block;font-size:clamp(23px,4.6vw,36px);font-weight:1000;color:#0a408a;line-height:1.15}
+.benefits-page .panel{padding:21px 18px;border:2px solid #d2f7ff;border-radius:25px;box-shadow:0 7px 15px #065ca332}
+.benefits-page .panel h2{font-size:clamp(21px,4.6vw,31px);color:#073d83;letter-spacing:-.65px}
+.benefits-page .panel .emphasis{color:#037aec}
+.benefits-page .panel p{font-size:13px}
+.benefits-page .partner-grid{margin-top:14px;gap:13px}
+.benefits-page .partner-card{position:relative;min-width:0;border-radius:18px;overflow:hidden;border:1px solid #d0eafb;box-shadow:0 3px 10px #04599c20;background:linear-gradient(#fff,#f1faff);padding:15px}
+.benefits-page .partner-card img{height:142px;width:100%;object-fit:contain;background:linear-gradient(140deg,#e2f5ff,#fff8e2)}
+.benefits-page .partner-card .emoji{font-size:48px;display:block;text-align:center;background:#f1f9ff;padding:10px;border-radius:12px}
+.benefits-page .partner-card strong{font-size:16px}
+.benefits-page .partner-card .chip{background:linear-gradient(#ffb852,#f97324);color:white;border:none;font-size:11px;letter-spacing:.02em}
+.benefits-page .how-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0 0}
+.benefits-page .step{display:flex;align-items:flex-start;gap:8px;min-width:0}
+.benefits-page .step-icon{position:relative;flex:0 0 48px;height:48px;display:grid;place-items:center;font-size:25px;background:linear-gradient(#17baff,#0069ed);border:2px solid #cbfaff;border-radius:50%;box-shadow:0 4px 7px #0062ac48;color:#fff}
+.benefits-page .step-number{position:absolute;top:-8px;right:-7px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:950;font-size:12px;background:linear-gradient(#ffe47d,#ffa71e);color:#874006}
+.benefits-page .step strong{color:#083e85;font-size:12px;line-height:1.3;display:block}
+.benefits-page .step p{font-size:11px;line-height:1.42;margin:4px 0}
+.benefits-page .steps-banner{color:#7c4100;background:linear-gradient(#fff1c7,#ffe1a5);border-radius:15px;padding:11px;text-align:center;font-size:12px;font-weight:860;margin-top:13px}
+.benefits-page .bottom{background:linear-gradient(145deg,#0d498d,#052c64);border:2px solid #48bcff;box-shadow:0 7px 17px #0038786b}
+.benefits-page .bottom a{color:#bad5f0}
+.benefits-page .bottom a.active{background:linear-gradient(#ffd86d,#ea911a);color:#602d05;box-shadow:0 2px 12px #ffb337a0}
+.benefits-page .bottom a span{font-size:25px}
+.benefits-page .demo-note{font-size:12px;color:#70450c;background:#fff0bd;padding:13px;border-radius:15px;border:1px solid #fada82}
+.item-option{display:flex;gap:10px;align-items:flex-start;border:1px solid #a9dbf5;background:#eaf8ff;border-radius:15px;padding:12px;margin:14px 0}
+.item-option input{width:19px;height:19px;flex:0 0 19px;margin:1px 0 0;accent-color:#0875e9}
+.item-option strong{display:block;color:#084f91;font-size:13px}
+.item-option small{display:block;color:#6985a7;line-height:1.42;font-size:11px;margin-top:4px}
+.preview-photo img{max-width:180px;max-height:160px;object-fit:contain;border:1px solid #a7dcf7;border-radius:12px;padding:7px;background:#fff;margin-top:8px}
+#itemPhoto{padding:10px;background:#f5fcff}
+#photoHint{color:#668aaf;font-size:11px}
+@media(max-width:650px){
+ .benefits-page .hero{min-height:264px}
+ .benefits-page .hero .mascot{right:21%;bottom:-16px;width:43%;height:205px}
+ .benefits-page .hero .hero-wheel{width:42%;right:-5%;bottom:0}
+ .benefits-page .hero h1{max-width:57%;font-size:clamp(27px,6vw,38px)}
+ .benefits-page .hero p{font-size:12px;max-width:51%}
+ .benefits-page .wallet-strip{gap:8px}
+ .benefits-page .wallet-tile{padding:12px 10px;gap:5px}
+ .benefits-page .wallet-tile .emoji{font-size:30px}
+ .benefits-page .wallet-tile small{font-size:10px}
+ .benefits-page .wallet-tile strong{font-size:25px}
+ .benefits-page .how-steps{grid-template-columns:1fr;gap:11px}
+ .benefits-page .step-icon{flex-basis:46px;height:46px}
+ .benefits-page .partner-card{padding:10px}
+ .benefits-page .partner-card img{height:98px}
+ .benefits-page .partner-card strong{font-size:13px}
+}
+@media(max-width:370px){
+ .benefits-page .hero .mascot{right:17%;width:47%}
+ .benefits-page .hero .hero-wheel{width:44%}
+ .benefits-page .hero h1{font-size:26px}
+ .benefits-page .hero{min-height:255px}
+ .benefits-page .wallet-tile .emoji{font-size:25px}
+ .benefits-page .wallet-tile strong{font-size:22px}
+}
