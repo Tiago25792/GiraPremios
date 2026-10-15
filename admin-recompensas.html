@@ -12,6 +12,11 @@
 <div id="authStatus" class="state" role="status" aria-live="polite">Verificando acesso administrativo...</div>
 <section id="editor" hidden>
 <div class="stats"><div class="stat"><strong id="totalCount">—</strong><small>Cadastros</small></div><div class="stat"><strong id="previewCount">—</strong><small>Divulgados</small></div><div class="stat"><strong id="redemptionCount">—</strong><small>Resgates</small></div></div>
+<section class="panel" aria-labelledby="testLaunchTitle" style="border-color:#a2dcff;background:linear-gradient(130deg,#eefbff,#fff3d3)">
+<h2 id="testLaunchTitle">🎡 Laboratório da roleta liberado</h2>
+<p>Faça giros únicos ou 100 testes de uma vez, veja o brinde aparecer, confira probabilidades e estoque e simule entregas sem premiar pessoas reais.</p>
+<a class="gold" href="./laboratorio-roleta.html?v=30" style="display:block;max-width:400px;margin-top:8px">🧪 Testar a roleta agora ›</a>
+</section>
 <section class="panel" id="editorPanel" aria-labelledby="formTitle"><h2 id="formTitle">✚ Cadastrar benefício ou brinde</h2><p>Cadastre fotos, estoques e regras de brindes para planejamento. Você também pode ativar cupons e benefícios digitais gratuitos e garantidos para todos os participantes elegíveis, sem sorteio.</p>
 <form id="rewardForm">
 <label class="field" for="rewardTitle">Nome do benefício *</label><input id="rewardTitle" type="text" maxlength="100" minlength="2" required placeholder="Ex.: 1 giro extra ou cupom do parceiro">
@@ -58,7 +63,7 @@
  <label class="field" for="wheelNotes">Observações sobre a distribuição</label>
  <textarea id="wheelNotes" maxlength="1200" placeholder="Ex.: estoque confirmado pelo parceiro, região atendida, condições aprovadas..."></textarea>
  <div class="wheel-progress" id="wheelProgress" role="status">Consultando os giros da comunidade...</div>
- <p class="notice">🔒 <strong>Bloqueio de premiação ativo:</strong> datas e chances não liberam sorteios, não atribuem ganhadores e não entregam brindes. A distribuição real dependerá de regras publicadas e da autorização aplicável.</p><button class="ghost" type="button" disabled aria-disabled="true" title="Não há sorteio ou premiação física ativados">🔒 Entregar brinde sorteado — desativado</button>
+ <p class="notice">🔒 <strong>Bloqueio de premiação ativo:</strong> datas e chances não liberam sorteios, não atribuem ganhadores e não entregam brindes. A distribuição real dependerá de regras publicadas e da autorização aplicável.</p><a class="ghost" href="./laboratorio-roleta.html?v=30" style="display:inline-block;margin-top:6px;text-align:center">🧪 Abrir roleta de testes e simular entrega ›</a>
  </section>
  <label class="field" for="rewardOrder">Ordem na vitrine</label><input id="rewardOrder" type="number" min="0" max="9999" step="1" value="0">
 <label class="field" for="rewardStatus">Situação</label><select id="rewardStatus"><option value="draft">Rascunho (somente administração)</option><option value="preview">Divulgar como “Em preparação”</option><option value="active">Disponível: benefício garantido (somente cupom/digital)</option></select>
@@ -76,7 +81,7 @@
 <div class="notice">✅ Cupons garantidos (sem sorteio) podem ser habilitados se não tiverem custo em moedas, limite de estoque ou participação aleatória, e suas condições forem publicadas. 🔒 Brindes físicos na roleta continuam somente em planejamento.</div>
 </section>
 <section id="accessDenied" class="panel" hidden><h2>Acesso restrito</h2><p>Entre com uma conta de administrador para gerenciar as recompensas.</p><a class="gold" href="./#entrar">Entrar no sistema</a></section>
-<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.9</footer></main>
-<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=29" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=29"><span>⚙️</span>Prévia</a></nav>
+<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V3.0</footer></main>
+<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=30" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=29"><span>⚙️</span>Prévia</a></nav>
 <script type="module" src="./admin-recompensas-v29.js?v=29"></script><script type="module" src="./admin-guaranteed-v29.js?v=29"></script>
 </body></html>
