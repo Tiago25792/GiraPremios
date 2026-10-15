@@ -95,6 +95,7 @@ async function start(){
   }
   user=auth.user;
   back.href=auth.role==='admin'?'./admin.html':'./usuario.html';
+  if(auth.role==='admin')document.getElementById('testLabLink')?.removeAttribute('hidden');
   await load();
   if(pendingGet())output('Sua última tentativa pode ter sido interrompida. Toque em “Recuperar giro” para ver o resultado sem descontar novamente.');
   else if(spins<1)output('Você não possui giros disponíveis. Entre em sua área para receber o bônus diário.');
