@@ -12,7 +12,7 @@
 <div id="authStatus" class="state" role="status" aria-live="polite">Verificando acesso administrativo...</div>
 <section id="editor" hidden>
 <div class="stats"><div class="stat"><strong id="totalCount">—</strong><small>Cadastros</small></div><div class="stat"><strong id="previewCount">—</strong><small>Divulgados</small></div><div class="stat"><strong id="redemptionCount">—</strong><small>Resgates</small></div></div>
-<section class="panel" id="editorPanel" aria-labelledby="formTitle"><h2 id="formTitle">✚ Cadastrar benefício ou brinde</h2><p>Cadastre itens disponibilizados pelos apoiadores, com foto, estoque e entrega. Salve como rascunho ou divulgue como “Em preparação”. Nenhum brinde será sorteado ou resgatado nesta fase.</p>
+<section class="panel" id="editorPanel" aria-labelledby="formTitle"><h2 id="formTitle">✚ Cadastrar benefício ou brinde</h2><p>Cadastre fotos, estoques e regras de brindes para planejamento. Você também pode ativar cupons e benefícios digitais gratuitos e garantidos para todos os participantes elegíveis, sem sorteio.</p>
 <form id="rewardForm">
 <label class="field" for="rewardTitle">Nome do benefício *</label><input id="rewardTitle" type="text" maxlength="100" minlength="2" required placeholder="Ex.: 1 giro extra ou cupom do parceiro">
 <div class="two"><div><label class="field" for="costCoins">Custo em moedas (opcional, não ativo)</label><input type="number" min="1" max="1000000" step="1" id="costCoins" placeholder="Ex.: 200"></div><div><label class="field" for="stock">Quantidade de itens disponíveis</label><input id="stock" type="number" min="0" max="1000000" step="1" placeholder="Ex.: 50"></div></div>
@@ -37,7 +37,7 @@
 <option value="not_applicable">Não se aplica</option></select>
 <label class="item-option" for="wheelCandidate">
 <input type="checkbox" id="wheelCandidate">
-<span><strong>Separar como candidato à futura roleta</strong><small>Apenas planejamento interno. Não ativa sorteio, não premia e não desconta moedas.</small></span>
+<span><strong>Separar como candidato à futura roleta</strong><small>Planeje datas, estoque e chances, sem contemplação ou entrega de brindes ativadas.</small></span>
 </label>
 <div class="preview-photo" id="photoPreview" hidden></div>
 <section class="wheel-settings" aria-labelledby="wheelSettingsTitle">
@@ -58,19 +58,25 @@
  <label class="field" for="wheelNotes">Observações sobre a distribuição</label>
  <textarea id="wheelNotes" maxlength="1200" placeholder="Ex.: estoque confirmado pelo parceiro, região atendida, condições aprovadas..."></textarea>
  <div class="wheel-progress" id="wheelProgress" role="status">Consultando os giros da comunidade...</div>
- <p class="notice">🔒 <strong>Bloqueio de premiação ativo:</strong> alterar esses campos não libera sorteios e não altera o resultado da roleta. A distribuição real dependerá de regras publicadas e da autorização aplicável.</p>
+ <p class="notice">🔒 <strong>Bloqueio de premiação ativo:</strong> datas e chances não liberam sorteios, não atribuem ganhadores e não entregam brindes. A distribuição real dependerá de regras publicadas e da autorização aplicável.</p><button class="ghost" type="button" disabled aria-disabled="true" title="Não há sorteio ou premiação física ativados">🔒 Entregar brinde sorteado — desativado</button>
  </section>
  <label class="field" for="rewardOrder">Ordem na vitrine</label><input id="rewardOrder" type="number" min="0" max="9999" step="1" value="0">
-<label class="field" for="rewardStatus">Situação</label><select id="rewardStatus"><option value="draft">Rascunho (somente administração)</option><option value="preview">Divulgar como “Em preparação”</option></select>
+<label class="field" for="rewardStatus">Situação</label><select id="rewardStatus"><option value="draft">Rascunho (somente administração)</option><option value="preview">Divulgar como “Em preparação”</option><option value="active">Disponível: benefício garantido (somente cupom/digital)</option></select>
 <div class="form-actions"><button id="save" type="submit" class="gold">Salvar recompensa</button><button id="cancel" type="button" class="ghost" hidden>Cancelar edição</button></div>
 <p class="state" id="saveMessage" role="status" aria-live="polite"></p>
 </form></section>
 <section class="panel" aria-labelledby="catalogTitle"><h2 id="catalogTitle">📦 Gerenciar catálogo</h2><p>Organize recompensas, fotos, valores e estoques. Os cadastros podem aparecer como “Em preparação”; nenhum sorteio ou resgate acontece nesta fase.</p>
 <div class="row between wrap"><span id="listSummary" class="eyebrow">Buscando cadastros...</span><button class="ghost" id="reload" type="button">Atualizar lista</button></div><div class="catalog-list" id="catalog"><div class="empty">Carregando catálogo...</div></div></section>
-<div class="notice">✅ Cadastros ficam em rascunho por padrão. Divulgar um item apenas exibe “Em preparação”; não autoriza troca ou consumo de moedas. A ativação de resgates exigirá regras aprovadas, estoque validado e controle transacional contra resgates duplicados.</div>
+<section class="panel" aria-labelledby="guaranteedTitle">
+<h2 id="guaranteedTitle">🎟️ Cupons garantidos — validar utilização</h2>
+<p>Aqui você confirma a utilização de cupons gratuitos, disponíveis a todos os participantes elegíveis. Os brindes da roleta não aparecem nesta lista e continuam bloqueados.</p>
+<div class="row between wrap"><span class="eyebrow" id="guaranteedSummary">Consultando cupons...</span><button class="ghost" id="reloadGuaranteed" type="button">Atualizar</button></div>
+<div class="catalog-list" id="guaranteedClaims"><p class="empty">Carregando...</p></div>
+</section>
+<div class="notice">✅ Cupons garantidos (sem sorteio) podem ser habilitados se não tiverem custo em moedas, limite de estoque ou participação aleatória, e suas condições forem publicadas. 🔒 Brindes físicos na roleta continuam somente em planejamento.</div>
 </section>
 <section id="accessDenied" class="panel" hidden><h2>Acesso restrito</h2><p>Entre com uma conta de administrador para gerenciar as recompensas.</p><a class="gold" href="./#entrar">Entrar no sistema</a></section>
-<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.8</footer></main>
-<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=28" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=27"><span>⚙️</span>Prévia</a></nav>
-<script type="module" src="./admin-recompensas-v28.js?v=28"></script>
+<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.9</footer></main>
+<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=29" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=29"><span>⚙️</span>Prévia</a></nav>
+<script type="module" src="./admin-recompensas-v29.js?v=29"></script><script type="module" src="./admin-guaranteed-v29.js?v=29"></script>
 </body></html>
