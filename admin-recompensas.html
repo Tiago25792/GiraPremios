@@ -3,7 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#087bec"><meta name="description" content="Gerenciamento de recompensas GiraPrêmios">
 <link rel="icon" type="image/svg+xml" href="./mascote-hd.svg?v=14">
-<link rel="stylesheet" href="./recompensas-v21.css?v=21"><link rel="stylesheet" href="./recompensas-v27.css?v=27">
+<link rel="stylesheet" href="./recompensas-v21.css?v=21"><link rel="stylesheet" href="./recompensas-v27.css?v=27"><link rel="stylesheet" href="./admin-wheel-v28.css?v=28">
 <title>Administrar Recompensas | GiraPrêmios</title>
 </head><body><main class="shell">
 <header class="site-head"><a class="logo" href="./admin.html"><img src="./roleta-marinha.svg" alt="" width="47" height="47">Gira<strong>Prêmios</strong></a><a class="round-head" href="./admin.html" title="Painel administrativo" aria-label="Painel administrativo">⚙️</a></header>
@@ -40,7 +40,27 @@
 <span><strong>Separar como candidato à futura roleta</strong><small>Apenas planejamento interno. Não ativa sorteio, não premia e não desconta moedas.</small></span>
 </label>
 <div class="preview-photo" id="photoPreview" hidden></div>
-<label class="field" for="rewardOrder">Ordem na vitrine</label><input id="rewardOrder" type="number" min="0" max="9999" step="1" value="0">
+<section class="wheel-settings" aria-labelledby="wheelSettingsTitle">
+ <div class="wheel-settings-heading"><span aria-hidden="true">🎡</span><div><h3 id="wheelSettingsTitle">Programação do brinde na roleta</h3><p>Somente planejamento. Os brindes não são distribuídos automaticamente e nenhuma probabilidade é utilizada enquanto a promoção não estiver autorizada e ativada no servidor.</p></div></div>
+ <div class="two">
+ <div><label class="field" for="wheelStart">Disponível a partir de</label><input id="wheelStart" type="datetime-local" aria-describedby="wheelTimezone"></div>
+ <div><label class="field" for="wheelEnd">Disponível até</label><input id="wheelEnd" type="datetime-local"></div>
+ </div>
+ <p id="wheelTimezone" class="helper-note">As datas seguem o horário local do seu dispositivo.</p>
+ <div class="two">
+ <div><label class="field" for="wheelMinSpins">Giros da comunidade antes de liberar</label><input id="wheelMinSpins" type="number" value="0" min="0" max="10000000" step="1"><small class="helper-note">Ex.: 100 significa que só poderá participar após 100 giros registrados no total.</small></div>
+ <div><label class="field" for="wheelChance">Chance planejada por giro (%)</label><input id="wheelChance" type="number" value="0" min="0" max="100" step="0.01"><small class="helper-note">0% = indisponível. Valores somente para planejamento; deverão constar nas regras aprovadas.</small></div>
+ </div>
+ <div class="two">
+ <div><label class="field" for="wheelDailyCap">Máximo de unidades por dia</label><input id="wheelDailyCap" type="number" min="1" max="1000000" step="1" placeholder="Ex.: 1"></div>
+ <div><label class="field" for="wheelPerUserCap">Limite por participante</label><input id="wheelPerUserCap" type="number" min="1" max="1000" value="1" step="1"></div>
+ </div>
+ <label class="field" for="wheelNotes">Observações sobre a distribuição</label>
+ <textarea id="wheelNotes" maxlength="1200" placeholder="Ex.: estoque confirmado pelo parceiro, região atendida, condições aprovadas..."></textarea>
+ <div class="wheel-progress" id="wheelProgress" role="status">Consultando os giros da comunidade...</div>
+ <p class="notice">🔒 <strong>Bloqueio de premiação ativo:</strong> alterar esses campos não libera sorteios e não altera o resultado da roleta. A distribuição real dependerá de regras publicadas e da autorização aplicável.</p>
+ </section>
+ <label class="field" for="rewardOrder">Ordem na vitrine</label><input id="rewardOrder" type="number" min="0" max="9999" step="1" value="0">
 <label class="field" for="rewardStatus">Situação</label><select id="rewardStatus"><option value="draft">Rascunho (somente administração)</option><option value="preview">Divulgar como “Em preparação”</option></select>
 <div class="form-actions"><button id="save" type="submit" class="gold">Salvar recompensa</button><button id="cancel" type="button" class="ghost" hidden>Cancelar edição</button></div>
 <p class="state" id="saveMessage" role="status" aria-live="polite"></p>
@@ -50,7 +70,7 @@
 <div class="notice">✅ Cadastros ficam em rascunho por padrão. Divulgar um item apenas exibe “Em preparação”; não autoriza troca ou consumo de moedas. A ativação de resgates exigirá regras aprovadas, estoque validado e controle transacional contra resgates duplicados.</div>
 </section>
 <section id="accessDenied" class="panel" hidden><h2>Acesso restrito</h2><p>Entre com uma conta de administrador para gerenciar as recompensas.</p><a class="gold" href="./#entrar">Entrar no sistema</a></section>
-<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.7</footer></main>
-<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=21" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=21"><span>⚙️</span>Prévia</a></nav>
-<script type="module" src="./admin-recompensas-v27.js?v=27"></script>
+<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.8</footer></main>
+<nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=28" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=27"><span>⚙️</span>Prévia</a></nav>
+<script type="module" src="./admin-recompensas-v28.js?v=28"></script>
 </body></html>
