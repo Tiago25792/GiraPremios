@@ -152,8 +152,8 @@ $('checkinBtn').addEventListener('click',checkin);
 $('shareInvite').addEventListener('click',shareInvite);
 $('profileForm').addEventListener('submit',saveProfile);
 $('showAllActivity').addEventListener('click',()=>{location.href='./atividades.html'});
-$('allBenefits').addEventListener('click',()=>{location.href='./recompensas.html?v=21'});
-for(const el of document.querySelectorAll('[data-benefit]'))el.addEventListener('click',()=>{location.href='./recompensas.html?v=21'});
+$('allBenefits').addEventListener('click',()=>{location.href='./recompensas.html?v=27'});
+for(const el of document.querySelectorAll('[data-benefit]'))el.addEventListener('click',()=>{location.href='./recompensas.html?v=27'});
 // O botão do sino é configurado pelo componente de notificações.
 $('closeDialog').addEventListener('click',()=>$('informationDialog').close());
 $('signOut').addEventListener('click',async()=>{await db.auth.signOut();location.replace('./#entrar')});
