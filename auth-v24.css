@@ -119,3 +119,9 @@ body[data-auth-page="reset"] .auth-scene-copy{max-width:39%;top:45px}
  .auth-scene h1{font-size:24px}
  .auth-mascot{right:3%}
 }
+
+.auth-icon[data-plus="true"]::after{content:"+";position:absolute;right:5px;bottom:6px;display:grid;place-items:center;width:20px;height:20px;border:2px solid #f1fbff;border-radius:50%;background:#0c85ee;color:#fff;font-weight:1000;font-size:15px;line-height:1;box-shadow:0 2px 5px #0766b061}
+.welcome-tick.waiting{background:linear-gradient(#a3ddf7,#308ada);border-color:#d9f6ff;font-size:41px;text-shadow:none;box-shadow:0 5px 0 #0864ab,0 7px 12px #003f7d6b}
+body[data-auth-page="welcome"] .auth-scene{height:250px}
+body[data-auth-page="welcome"] .success-copy{margin-top:8px}
+body[data-auth-page="welcome"] .auth-card h2{font-weight:1000}
