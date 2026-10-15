@@ -3,7 +3,7 @@ import {db,identity} from './app-config.js?v=21';
 const $=id=>document.getElementById(id);
 const format=n=>new Intl.NumberFormat('pt-BR').format(Number(n)||0);
 const iconFor={spin:'☸️',coupon:'🎟️',gift:'🎁',digital:'💎'};
-let items=[],partnerNames=new Map(),editing=null;
+let items=[],partnerNames=new Map(),partnerImages=new Map(),editing=null;
 function message(text,error=false){
  const target=$('saveMessage');target.textContent=text;target.className='state '+(error?'error':'success')
 }
@@ -62,12 +62,12 @@ function makeEntry(row){
  actions.append(e,t,d);card.append(icon,body,actions);return card;
 }
 async function loadPartners(){
- const {data,error}=await db.from('sponsors').select('id,name,approved').order('name',{ascending:true}).limit(300);
+ const {data,error}=await db.from('sponsors').select('id,name,approved,image_url').order('name',{ascending:true}).limit(300);
  if(error)throw error;
  const root=$('partner');root.replaceChildren(new Option('Sem parceiro definido',''));
- partnerNames=new Map();
+ partnerNames=new Map();partnerImages=new Map();
  for(const sponsor of data||[]){
-  partnerNames.set(sponsor.id,sponsor.name);
+  partnerNames.set(sponsor.id,sponsor.name);if(sponsor.image_url)partnerImages.set(sponsor.id,sponsor.image_url);
   root.add(new Option(sponsor.name+(sponsor.approved?'':' (não publicado)'),sponsor.id));
  }
 }
@@ -127,5 +127,6 @@ async function start(){
  $('rewardForm').addEventListener('submit',save);
  $('cancel').addEventListener('click',reset);
  $('reload').addEventListener('click',loadCatalog);
+ $('partner').addEventListener('change',()=>{if(!$('rewardImage').value&&partnerImages.get($('partner').value))$('rewardImage').value=partnerImages.get($('partner').value)});
 }
 start();
