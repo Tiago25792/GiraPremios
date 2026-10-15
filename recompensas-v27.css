@@ -56,9 +56,9 @@ body{background:radial-gradient(ellipse at 52% 0%,#87f1ff 0%,transparent 34%),li
 #photoHint{color:#668aaf;font-size:11px}
 @media(max-width:650px){
  .benefits-page .hero{min-height:264px}
- .benefits-page .hero .mascot{right:21%;bottom:-16px;width:43%;height:205px}
+ .benefits-page .hero .mascot{right:10%;bottom:-13px;width:38%;height:204px}
  .benefits-page .hero .hero-wheel{width:42%;right:-5%;bottom:0}
- .benefits-page .hero h1{max-width:57%;font-size:clamp(27px,6vw,38px)}
+ .benefits-page .hero h1{max-width:52%;font-size:clamp(27px,6vw,38px)}
  .benefits-page .hero p{font-size:12px;max-width:51%}
  .benefits-page .wallet-strip{gap:8px}
  .benefits-page .wallet-tile{padding:12px 10px;gap:5px}
@@ -72,7 +72,7 @@ body{background:radial-gradient(ellipse at 52% 0%,#87f1ff 0%,transparent 34%),li
  .benefits-page .partner-card strong{font-size:13px}
 }
 @media(max-width:370px){
- .benefits-page .hero .mascot{right:17%;width:47%}
+ .benefits-page .hero .mascot{right:6%;width:39%}
  .benefits-page .hero .hero-wheel{width:44%}
  .benefits-page .hero h1{font-size:26px}
  .benefits-page .hero{min-height:255px}
