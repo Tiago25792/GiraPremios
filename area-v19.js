@@ -9,7 +9,7 @@ const allowed=['perfil','beneficios','convites','atividades','notificacoes','aju
 const section=allowed.includes(page)?page:'perfil';
 const number=x=>new Intl.NumberFormat('pt-BR').format(Number(x)||0);
 const localDate=d=>new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(d));
-const timeEmoji=kind=>({checkin:'🪙',spin:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'})[kind]||'🔔';
+const timeEmoji=kind=>({checkin:'🪙',spin:'☸️',spin_used:'☸️',invite:'👥',invite_daily:'🎁',milestone:'🏆'})[kind]||'🔔';
 const navIcon={
  home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>',
  benefits:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v11H3zM2 7h20v4H2zM12 7v14M12 7c-7-1-7-6-4-6 2 0 4 3 4 6 0-3 2-6 4-6 3 0 3 5-4 6z"/></svg>',
