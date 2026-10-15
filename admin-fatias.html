@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087bec"><title>Personalizar Roleta | GiraPrêmios</title>
+<link rel="icon" type="image/svg+xml" href="./mascote-hd.svg?v=14">
+<link rel="stylesheet" href="./recompensas-v21.css?v=21">
+<link rel="stylesheet" href="./admin-fatias-v31.css?v=31">
+</head><body class="slice-page"><main class="slice-shell">
+<header class="slice-header"><a class="slice-brand" href="./admin.html"><img src="./mascote-hd.svg?v=14" width="41" height="49" alt=""> Gira<strong>Prêmios</strong></a>
+<a class="slice-back" href="./admin.html">← Painel</a></header>
+<section class="slice-hero"><span>🎡 PAINEL ADMINISTRATIVO</span><h1>Personalizar a <em>roleta</em></h1>
+<p>Escolha o nome, emoji, cor, imagem e frequência ilustrativa de cada fatia. Veja tudo antes de publicar.</p></section>
+<p class="slice-alert">🔒 <strong>Personalização visual, sem premiação real.</strong> Nomes como “celular”, “brinde” ou “100 moedas” identificam setores ilustrativos: o giro não entrega produtos nem credita valores.</p>
+<div id="state" class="slice-state" role="status" aria-live="polite">Verificando acesso...</div>
+<section id="restricted" class="slice-card" hidden><h2>Acesso restrito</h2><p>Apenas administradores podem modificar a roleta.</p><a href="./entrar.html">Entrar ›</a></section>
+<section id="editor" hidden>
+<section class="slice-card" aria-labelledby="liveTitle"><h2 id="liveTitle">👀 Prévia da roleta principal</h2><p>As modificações são exibidas imediatamente aqui. A roleta dos participantes só muda depois de você salvar.</p>
+<div class="slice-preview-wrap"><div class="slice-pointer">▼</div><div id="wheelPreview" class="slice-preview" role="img" aria-label="Prévia das fatias"></div></div>
+<div id="weightSummary" class="slice-weight-note">Calculando pesos...</div>
+<div class="slice-preview-buttons"><button id="tryPreview" class="slice-primary" type="button">🎡 Girar prévia gratuita</button>
+<a class="slice-ghost" href="./roleta.html?v=31">Abrir roleta pública ›</a></div>
+<p id="tryResult" class="slice-result" role="status">Prévia: nenhuma moeda ou giro será gasto.</p></section>
+<section class="slice-card" aria-labelledby="editTitle"><div class="slice-between">
+<div><h2 id="editTitle">🎨 Editar cada fatia</h2><p>4 a 12 fatias. Arraste a ordem usando as setas; desative fatias sem apagá-las.</p></div>
+<button class="slice-add" id="addSlice" type="button">+ Nova fatia</button></div>
+<div id="slices" class="slice-list"><p>Carregando fatias...</p></div>
+<div class="slice-bottom">
+<button id="save" type="button" class="slice-primary">💾 Salvar na roleta principal</button>
+<button id="reset" type="button" class="slice-ghost">Recarregar versão salva</button></div>
+<p id="saveMessage" class="slice-state" role="status"></p>
+</section>
+<section class="slice-card"><h2>🧩 Como funcionam os pesos?</h2>
+<p>O peso define a frequência relativa do <strong>resultado ilustrativo</strong>. Exemplo: uma fatia com peso 1 e outra com peso 9 têm proporções de aproximadamente 10% e 90%, se forem as únicas com peso positivo. Com peso 0, a fatia fica visível, mas não é selecionada.</p>
+<p>Você também pode marcar uma fatia como inativa. Ela deixa de aparecer na roleta. A disponibilidade de brindes reais continua independente, controlada no painel de planejamento.</p>
+<a class="slice-ghost" href="./admin-recompensas.html?v=30">📦 Configurar brindes físicos</a>
+<a class="slice-ghost" href="./laboratorio-roleta.html?v=30">🧪 Laboratório de brindes</a>
+</section>
+</section></main><script type="module" src="./admin-fatias-v31.js?v=31"></script></body></html>
