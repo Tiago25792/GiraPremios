@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087bec">
+<meta name="description" content="Laboratório privativo da roleta GiraPrêmios — simulações sem premiação real">
+<title>Laboratório da Roleta | GiraPrêmios</title>
+<link rel="icon" type="image/svg+xml" href="./mascote-hd.svg?v=14">
+<link rel="stylesheet" href="./recompensas-v21.css?v=21">
+<link rel="stylesheet" href="./laboratorio-roleta-v30.css?v=30">
+</head>
+<body class="lab-page">
+<main class="lab-shell">
+<header class="lab-header">
+<a class="lab-brand" href="./admin.html"><img src="./mascote-hd.svg?v=14" alt="" width="45" height="52"> Gira<strong>Prêmios</strong></a>
+<a class="lab-back" href="./admin-recompensas.html?v=30">← Administração</a>
+</header>
+<section class="lab-hero" aria-labelledby="heading">
+<span class="lab-chip">🔐 EXCLUSIVO DO ADMINISTRADOR</span>
+<h1 id="heading">Laboratório da <em>Roleta</em></h1>
+<p>Teste imagens, probabilidades, datas, limites e entrega simulada de brindes.</p>
+<img class="lab-bird" src="./mascote-hd.svg?v=14" alt="Mascote marinheiro GiraPrêmios">
+</section>
+<div class="lab-warning"><strong>🧪 AMBIENTE DE TESTES — NÃO ENTREGA BRINDES.</strong>
+Os resultados são simulados, não geram contemplados reais, não alteram estoques, moedas ou giros dos participantes.</div>
+<div id="status" class="lab-status" role="status" aria-live="polite">Verificando sua conta administrativa...</div>
+<section id="labMain" hidden>
+<div class="lab-metrics" aria-label="Resumo dos testes">
+<div class="lab-stat"><span>🎡 Giros simulados</span><strong id="statTotal">—</strong></div>
+<div class="lab-stat"><span>🎁 Brindes simulados</span><strong id="statGifts">—</strong></div>
+<div class="lab-stat"><span>📦 Entregas simuladas</span><strong id="statDelivered">—</strong></div>
+</div>
+<section class="lab-section">
+<div class="lab-sec-head"><div><h2>🎁 Prévia dos brindes cadastrados</h2>
+<p>Produtos da administração marcados como candidatos à roleta. A imagem e as regras são carregadas do seu catálogo.</p></div>
+<a class="lab-link" href="./admin-recompensas.html?v=30">+ Cadastrar brinde</a></div>
+<div class="lab-gift-preview">
+<select id="giftSelect" aria-label="Selecione um brinde para visualizar">
+<option value="">Carregando brindes...</option></select>
+<div id="giftPreview" class="lab-gift-content"><span class="lab-no-gift">🧰 Cadastre o primeiro brinde para testar os resultados especiais.</span></div>
+</div>
+</section>
+<section class="lab-section lab-play">
+<h2>🎡 Girar a roleta de teste</h2>
+<p>O servidor aplica as datas, o mínimo de giros anteriores, a chance por giro, o estoque e os limites por dia e participante <strong>somente à simulação</strong>.</p>
+<div class="lab-controls">
+<label for="player">Participante fictício Nº<input id="player" type="number" min="1" max="10000" step="1" value="1"></label>
+<label for="testAt">Simular na data/hora<input id="testAt" type="datetime-local"><small>Deixe em branco para testar o momento atual.</small></label>
+</div>
+<div class="lab-wheel-wrap">
+<span class="lab-pointer" aria-hidden="true">▼</span>
+<img id="testWheel" src="./roleta-marinha.svg?v=12" alt="Roleta ilustrada para testes, com setores de moedas e um baú para os brindes">
+</div>
+<p id="spinResult" class="lab-result" role="status" aria-live="polite">Escolha as configurações e faça seu primeiro giro virtual de teste.</p>
+<div id="prizeVisual" class="lab-prize" hidden></div>
+<div class="lab-button-row">
+<button id="spinOnce" type="button" class="lab-primary">🎡 Girar 1 vez</button>
+<button id="batch25" type="button" class="lab-alt">⚡ Simular 25 giros</button>
+<button id="batch100" type="button" class="lab-alt">⚡ Simular 100 giros</button>
+</div>
+<p class="lab-fine">Os lotes simulam participantes fictícios diferentes, respeitando os limites. Moedas exibidas são ilustrativas e não são creditadas.</p>
+</section>
+<section class="lab-section">
+<div class="lab-sec-head"><div><h2>📋 Histórico dos testes</h2><p>Confira a premiação simulada, o participante fictício e os testes de entrega.</p></div>
+<button id="resetTests" type="button" class="lab-danger">Zerar somente testes</button></div>
+<div id="testHistory" class="lab-history"><p>Aguardando resultados...</p></div>
+</section>
+<div class="lab-warning"><strong>🔒 Premiação pública bloqueada.</strong> O laboratório permite simular toda a lógica, inclusive o botão de entrega. Nenhuma simulação constitui uma promessa, entrega real ou autorização de promoção.</div>
+</section>
+<section id="blocked" class="lab-section" hidden><h2>Acesso restrito</h2><p>Faça login como administrador para testar a roleta.</p><a class="lab-link" href="./entrar.html">Entrar na minha conta ›</a></section>
+</main>
+<script type="module" src="./laboratorio-roleta-v30.js?v=30"></script>
+</body>
+</html>
