@@ -79,7 +79,7 @@ function templatePerfil(){return '<section class="panel">'+
  '<div class="info-row"><span class="info-icon">❓</span><span class="info-body"><strong>Ajuda e suporte</strong><small>Perguntas e orientações</small></span><a class="ghost-button" href="./ajuda.html">Ajuda ›</a></div></section>';
 }
 function templateBeneficios(){return '<section class="highlight"><h2>🎁 Recompensas e vantagens</h2><p>Conheça as modalidades planejadas. Novas recompensas serão mostradas quando houver parceiros e regras definidas.</p><span class="pill">Nenhum resgate disponível agora</span></section>'+
- '<section class="panel"><a class="gold-button" href="./recompensas.html?v=27">🎁 Abrir Central de Recompensas ›</a></section>'+ 
+ '<section class="panel"><a class="gold-button" href="./recompensas.html?v=29">🎁 Abrir Central de Recompensas ›</a></section>'+ 
  '<section class="panel"><div class="panel-heading"><h2>Benefícios da comunidade</h2><span class="pill">Em preparação</span></div>'+
  '<div class="grid3" id="benefitCards">'+
  '<article class="benefit-card"><span class="emoji">🎟️</span><strong>Cupom 10%</strong><p>Desconto ilustrativo em produtos selecionados, dependendo de parceiros futuros.</p><span class="pill">Em preparação</span></article>'+
