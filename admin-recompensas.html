@@ -3,7 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#087bec"><meta name="description" content="Gerenciamento de recompensas GiraPrêmios">
 <link rel="icon" type="image/svg+xml" href="./mascote-hd.svg?v=14">
-<link rel="stylesheet" href="./recompensas-v21.css?v=21">
+<link rel="stylesheet" href="./recompensas-v21.css?v=21"><link rel="stylesheet" href="./recompensas-v27.css?v=27">
 <title>Administrar Recompensas | GiraPrêmios</title>
 </head><body><main class="shell">
 <header class="site-head"><a class="logo" href="./admin.html"><img src="./roleta-marinha.svg" alt="" width="47" height="47">Gira<strong>Prêmios</strong></a><a class="round-head" href="./admin.html" title="Painel administrativo" aria-label="Painel administrativo">⚙️</a></header>
@@ -12,26 +12,45 @@
 <div id="authStatus" class="state" role="status" aria-live="polite">Verificando acesso administrativo...</div>
 <section id="editor" hidden>
 <div class="stats"><div class="stat"><strong id="totalCount">—</strong><small>Cadastros</small></div><div class="stat"><strong id="previewCount">—</strong><small>Divulgados</small></div><div class="stat"><strong id="redemptionCount">—</strong><small>Resgates</small></div></div>
-<section class="panel" id="editorPanel" aria-labelledby="formTitle"><h2 id="formTitle">✚ Cadastrar recompensa</h2><p>Salve como rascunho ou divulgue apenas como benefício em preparação. Os resgates permanecem desativados até a definição das regras.</p>
+<section class="panel" id="editorPanel" aria-labelledby="formTitle"><h2 id="formTitle">✚ Cadastrar benefício ou brinde</h2><p>Cadastre itens disponibilizados pelos apoiadores, com foto, estoque e entrega. Salve como rascunho ou divulgue como “Em preparação”. Nenhum brinde será sorteado ou resgatado nesta fase.</p>
 <form id="rewardForm">
 <label class="field" for="rewardTitle">Nome do benefício *</label><input id="rewardTitle" type="text" maxlength="100" minlength="2" required placeholder="Ex.: 1 giro extra ou cupom do parceiro">
-<div class="two"><div><label class="field" for="costCoins">Custo em moedas (a definir)</label><input type="number" min="1" max="1000000" step="1" id="costCoins" placeholder="Ex.: 200"></div><div><label class="field" for="stock">Estoque (vazio = a definir)</label><input id="stock" type="number" min="0" max="1000000" step="1" placeholder="Ex.: 50"></div></div>
-<label class="field" for="rewardType">Tipo de recompensa *</label><select id="rewardType" required><option value="spin">Giro virtual demonstrativo</option><option value="coupon">Cupom do parceiro</option><option value="gift">Brinde garantido do parceiro</option><option value="digital">Benefício digital</option></select>
+<div class="two"><div><label class="field" for="costCoins">Custo em moedas (opcional, não ativo)</label><input type="number" min="1" max="1000000" step="1" id="costCoins" placeholder="Ex.: 200"></div><div><label class="field" for="stock">Quantidade de itens disponíveis</label><input id="stock" type="number" min="0" max="1000000" step="1" placeholder="Ex.: 50"></div></div>
+<label class="field" for="rewardType">Tipo de recompensa *</label><select id="rewardType" required><option value="spin">Giro virtual demonstrativo</option><option value="coupon">Cupom do parceiro</option><option value="gift">Brinde / item do apoiador</option><option value="digital">Benefício digital</option></select>
 <label class="field" for="partner">Parceiro responsável</label><select id="partner"><option value="">Sem parceiro definido</option></select>
 <label class="field" for="details">Descrição do benefício</label><textarea id="details" maxlength="500" placeholder="Explique o que o participante receberá quando estiver disponível."></textarea>
 <label class="field" for="terms">Regras e condições</label><textarea id="terms" maxlength="3000" placeholder="Prazo, local de retirada, validade, limite por participante, condições de uso."></textarea>
-<label class="field" for="rewardImage">Imagem ou logo (URL HTTPS opcional)</label><input id="rewardImage" type="url" placeholder="https://...">
+<label class="field" for="rewardImage">Foto do item ou URL HTTPS</label>
+<input id="rewardImage" type="url" placeholder="Cole o link de uma imagem ou selecione a foto abaixo">
+<label class="field" for="itemPhoto">Enviar foto pelo celular</label>
+<input id="itemPhoto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photoHint">
+<p id="photoHint">JPG, PNG ou WebP, até 5 MB. O arquivo será guardado no Supabase.</p>
+<div class="two">
+<div><label class="field" for="fulfillmentMethod">Entrega do benefício</label><select id="fulfillmentMethod">
+<option value="to_define">A definir</option><option value="pickup">Retirada no parceiro</option>
+<option value="partner_delivery">Entrega pelo apoiador</option><option value="digital">Entrega digital</option>
+</select></div>
+<div><label class="field" for="validUntil">Validade (opcional)</label><input id="validUntil" type="date"></div>
+</div>
+<label class="field" for="itemCondition">Condição do item</label><select id="itemCondition">
+<option value="new">Novo</option><option value="used">Usado, informado na descrição</option>
+<option value="not_applicable">Não se aplica</option></select>
+<label class="item-option" for="wheelCandidate">
+<input type="checkbox" id="wheelCandidate">
+<span><strong>Separar como candidato à futura roleta</strong><small>Apenas planejamento interno. Não ativa sorteio, não premia e não desconta moedas.</small></span>
+</label>
+<div class="preview-photo" id="photoPreview" hidden></div>
 <label class="field" for="rewardOrder">Ordem na vitrine</label><input id="rewardOrder" type="number" min="0" max="9999" step="1" value="0">
 <label class="field" for="rewardStatus">Situação</label><select id="rewardStatus"><option value="draft">Rascunho (somente administração)</option><option value="preview">Divulgar como “Em preparação”</option></select>
 <div class="form-actions"><button id="save" type="submit" class="gold">Salvar recompensa</button><button id="cancel" type="button" class="ghost" hidden>Cancelar edição</button></div>
 <p class="state" id="saveMessage" role="status" aria-live="polite"></p>
 </form></section>
-<section class="panel" aria-labelledby="catalogTitle"><h2 id="catalogTitle">📦 Gerenciar catálogo</h2><p>Organize recompensas, fotos, valores e estoques. Nenhuma troca pode ocorrer nesta fase.</p>
+<section class="panel" aria-labelledby="catalogTitle"><h2 id="catalogTitle">📦 Gerenciar catálogo</h2><p>Organize recompensas, fotos, valores e estoques. Os cadastros podem aparecer como “Em preparação”; nenhum sorteio ou resgate acontece nesta fase.</p>
 <div class="row between wrap"><span id="listSummary" class="eyebrow">Buscando cadastros...</span><button class="ghost" id="reload" type="button">Atualizar lista</button></div><div class="catalog-list" id="catalog"><div class="empty">Carregando catálogo...</div></div></section>
 <div class="notice">✅ Cadastros ficam em rascunho por padrão. Divulgar um item apenas exibe “Em preparação”; não autoriza troca ou consumo de moedas. A ativação de resgates exigirá regras aprovadas, estoque validado e controle transacional contra resgates duplicados.</div>
 </section>
 <section id="accessDenied" class="panel" hidden><h2>Acesso restrito</h2><p>Entre com uma conta de administrador para gerenciar as recompensas.</p><a class="gold" href="./#entrar">Entrar no sistema</a></section>
-<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.1</footer></main>
+<footer class="footer">© GiraPrêmios Solidária • Gestão de Recompensas V2.7</footer></main>
 <nav class="bottom" aria-label="Navegação administrativa"><a href="./admin.html"><span>⌂</span>Painel</a><a href="./admin.html"><span>🤝</span>Apoiadores</a><a class="active" href="./admin-recompensas.html?v=21" aria-current="page"><span>🎁</span>Recompensas</a><a href="./recompensas.html?v=21"><span>⚙️</span>Prévia</a></nav>
-<script type="module" src="./admin-recompensas-v21.js?v=21"></script>
+<script type="module" src="./admin-recompensas-v27.js?v=27"></script>
 </body></html>
