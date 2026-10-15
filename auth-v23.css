@@ -1,0 +1,80 @@
+/* GiraPrêmios V2.3 — ajuste de fidelidade do acesso à arte aprovada.
+   Reproporção sem trocar identidade visual, mascote ou funcionalidades. */
+.auth-shell{width:min(100%,520px);padding-inline:12px}
+.auth-header{height:66px}
+.auth-brand{letter-spacing:-.65px;font-size:clamp(22px,4.7vw,28px)}
+.auth-brand img{width:43px;height:43px}
+.auth-back{height:39px;min-width:41px;font-size:21px}
+.auth-scene{
+  height:213px;min-height:0;
+  border-radius:24px 24px 22px 22px;
+  background:radial-gradient(ellipse at 70% 0%,#d8fcffb5,transparent 60%),linear-gradient(135deg,#0872e9 0%,#079cf4 58%,#22cafa 100%);
+  border:3px solid #c5f5ff;
+  box-shadow:0 8px 21px #0756ac53,inset 0 3px #ffffffab;
+}
+.auth-scene:before{height:29%;background:linear-gradient(180deg,#abf7ff82,#03a8e5a8);clip-path:polygon(0 40%,14% 20%,28% 35%,43% 15%,63% 40%,78% 20%,100% 36%,100% 100%,0 100%)}
+.auth-scene:after{right:-4%;bottom:0;width:32%;height:27%;background:radial-gradient(ellipse at 74% 70%,#ffe9a49a 0%,#d0f0d355 47%,transparent 75%)}
+.auth-scene-copy{left:18px;top:31px;max-width:59%;z-index:4}
+.auth-scene h1{font-size:clamp(27px,5.5vw,33px);line-height:1.06;letter-spacing:-.9px;text-wrap:balance}
+.auth-scene p{font-size:12px;line-height:1.28;margin-top:10px;max-width:200px}
+.auth-mascot{right:1%;bottom:-7px;width:44%;height:93%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 6px 4px #0061af66);z-index:3}
+.scene-birds{right:12%;top:10px;font-size:19px}
+.scene-lighthouse{right:3%;top:13px;font-size:25px;z-index:1}
+.scene-coins{font-size:22px;bottom:5px;left:12px}
+.scene-spark{left:51%;top:10px;font-size:19px}
+.auth-card{border-radius:22px;margin:-12px 9px 0;padding:18px 20px 20px;background:linear-gradient(158deg,#fff,#f2fcff);border:2px solid #d4f7ff;box-shadow:0 9px 24px #0065a550,inset 0 2px #fff}
+.auth-card-title{gap:10px;margin-bottom:13px}
+.auth-icon{width:52px;height:52px;flex:0 0 52px;font-size:29px;border-radius:14px}
+.auth-card h2{font-size:clamp(23px,4.2vw,28px);letter-spacing:-.65px}
+.auth-card .subtitle{font-size:12px;margin-top:3px}
+.auth-form{gap:10px}
+.auth-field label{font-size:12px;margin-bottom:4px}
+.auth-input-wrap,.auth-input-wrap input{min-height:48px}
+.auth-input-wrap input{padding:11px 47px 11px 42px;border-radius:12px;font-size:14px}
+.auth-input-wrap .lead{font-size:18px}
+.pass-toggle{font-size:18px;right:4px}
+.auth-inline{font-size:11px;gap:6px;margin:2px 0 1px}
+.auth-inline .remember-note{font-size:10px}
+.auth-submit{min-height:51px;border-radius:14px;font-size:16px;box-shadow:inset 0 2px #ffffffb7,0 3px 0 #b96710,0 6px 10px #0363b63c}
+.auth-divider{margin:6px 0;font-size:11px}
+.auth-alt{min-height:46px;border-radius:12px;font-size:13px}
+.auth-security{font-size:11px;padding:9px 11px;margin-top:10px;border-radius:12px;line-height:1.3}
+.auth-security .shield{font-size:19px}
+.auth-security strong{font-size:11px}
+.auth-actions{margin-top:14px;font-size:12px}
+.auth-footer{font-size:11px;margin-top:13px}
+.auth-hint{font-size:10px}
+.auth-card button.is-pending{background:#f5fcff;color:#5a7fa1;box-shadow:none;border-style:dashed}
+.auth-card button.is-pending .google-soon{font-size:10px;margin-left:4px;padding:3px 6px;color:#6f83a2;background:#e9f3fb;border-radius:99px}
+.auth-loading{margin:10px 0 0;display:flex;align-items:center;gap:8px;justify-content:center;color:#156caf;font-size:12px;font-weight:800}
+@media(max-width:470px){
+ .auth-shell{padding:0 9px 18px}
+ .auth-header{height:60px}
+ .auth-brand{font-size:clamp(20px,5.6vw,24px)}
+ .auth-brand img{width:40px;height:40px}
+ .auth-scene{height:215px;min-height:0}
+ .auth-scene-copy{left:13px;top:33px;max-width:59%}
+ .auth-scene h1{font-size:clamp(24px,6.3vw,29px);line-height:1.07;letter-spacing:-.8px}
+ .auth-scene p{font-size:11px;max-width:178px;margin-top:10px}
+ .auth-mascot{right:-1%;width:47%;height:91%;bottom:-6px}
+ .scene-lighthouse{font-size:23px;top:8px}
+ .scene-birds{font-size:19px;right:15%}
+ .auth-card{margin:-11px 7px 0;padding:17px 14px 18px}
+ .auth-card-title{gap:9px;margin-bottom:13px}
+ .auth-icon{width:49px;height:49px;flex-basis:49px;font-size:27px}
+ .auth-card h2{font-size:23px}
+ .auth-form{gap:10px}
+ .auth-field label{font-size:11px}
+ .auth-input-wrap,.auth-input-wrap input{min-height:48px}
+ .auth-input-wrap input{font-size:14px}
+ .auth-submit{min-height:51px}
+ .auth-divider{margin:7px 0}
+ .auth-inline{align-items:center}
+}
+@media(max-width:370px){
+ .auth-scene-copy{max-width:62%;top:30px}
+ .auth-scene h1{font-size:23px}
+ .auth-mascot{width:44%;right:-2%}
+ .auth-inline{font-size:10px}
+ .auth-inline .remember-note{font-size:9px}
+}
