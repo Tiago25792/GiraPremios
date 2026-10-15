@@ -41,6 +41,7 @@ function ensureCaptcha(){
  const box=$('turnstileSlot'),region=$('captchaRegion');
  if(!box||!region)return Promise.resolve();
  region.hidden=false;
+ const preview=$('securityPreview');if(preview)preview.hidden=true;
  const key=authOptions.turnstileSiteKey;
  return new Promise((resolve)=>{
   const timeout=setTimeout(()=>{captchaReady=false;status('A proteção de segurança está demorando para carregar. Verifique a conexão e atualize a página.','error');resolve()},14000);
@@ -157,13 +158,15 @@ async function welcome(){
  const emailPending=url.searchParams.get('etapa')==='email';
  const confirm=$('confirmTitle'),description=$('confirmDescription'),button=$('startButton');
  const icon=$('successIcon'),notes=$('successNote');
+ const artworkMark=$('welcomeMark');
  if(confirmed){
   const name=(account.user.user_metadata?.full_name||'').trim().split(/\s+/)[0];
   confirm.textContent=name?'Conta confirmada, '+name+'!':'Sua conta está pronta!';
-  description.textContent='Seu cadastro está ativo. Agora você pode acessar os benefícios gratuitos da comunidade.';
+  description.textContent='Agora você já pode aproveitar todos os benefícios disponíveis do GiraPrêmios!';
   button.textContent='Ir para minha área ›';
   button.href=account.role==='admin'?'./admin.html':'./usuario.html';
   icon.textContent='✓';
+  if(artworkMark){artworkMark.hidden=false;artworkMark.classList.remove('waiting');artworkMark.textContent='✓'}
   notes.textContent='Os prêmios e as trocas de moedas ainda estão em preparação.';
  }else{
   confirm.textContent=emailPending?'Confira seu e-mail!':'Confirme seu cadastro';
@@ -171,6 +174,7 @@ async function welcome(){
   button.href='./entrar.html';
   button.textContent='Ir para o login ›';
   icon.textContent='✉';
+  if(artworkMark){artworkMark.hidden=false;artworkMark.classList.add('waiting');artworkMark.textContent='✉'}
   notes.textContent='A confirmação de e-mail depende da entrega de mensagens configurada no Supabase.';
  }
 }
@@ -180,7 +184,7 @@ function setGoogle(){
   btn.disabled=true;
   btn.setAttribute('title','Google ainda não foi ativado no Supabase');
   btn.classList.add('is-pending');
-  btn.innerHTML='<span class="google-g" aria-hidden="true">G</span> Continuar com Google <small class="google-soon">Em breve</small>';
+  btn.innerHTML='<span class="google-g" aria-hidden="true">G</span> Entrar com Google';
  }else btn.addEventListener('click',googleSignIn);
 }
 async function init(){
